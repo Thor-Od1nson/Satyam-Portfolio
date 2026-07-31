@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BrandMonogram } from "@/components/brand/monogram";
 import { navigationConfig } from "@/lib/navigation";
 
 export function Logo() {
@@ -10,12 +11,12 @@ export function Logo() {
       aria-label={`${navigationConfig.branding.name} home`}
     >
       <span className="flex size-10 items-center justify-center rounded-2xl border border-border bg-elevated text-sm font-semibold tracking-[var(--tracking-heading)] text-foreground shadow-xs">
-        <span className="text-primary">{navigationConfig.branding.initials}</span>
+        <BrandMonogram className="h-5 w-auto text-foreground" />
       </span>
 
       <span className="flex min-w-0 flex-col leading-tight">
         <span className="font-heading text-sm font-semibold tracking-[var(--tracking-heading)] text-foreground sm:text-base">
-          {navigationConfig.branding.name}
+          {navigationConfig.branding.wordmark}
         </span>
         <span className="max-w-[12rem] text-2xs text-muted-foreground sm:max-w-none">
           {navigationConfig.branding.tagline}

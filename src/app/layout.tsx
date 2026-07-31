@@ -68,6 +68,11 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/apple-icon",
+  },
 };
 
 export const viewport: Viewport = {

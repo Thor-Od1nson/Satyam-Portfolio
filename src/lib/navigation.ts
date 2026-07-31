@@ -1,3 +1,4 @@
+import { brandWordmark } from "@/lib/brand";
 import { siteIdentity } from "@/lib/site";
 
 export type NavigationItem = {
@@ -9,8 +10,8 @@ export const navigationConfig = {
   homeHref: "/",
   branding: {
     name: siteIdentity.name,
+    wordmark: brandWordmark,
     tagline: siteIdentity.navigationTagline,
-    initials: siteIdentity.initials,
   },
   primary: [
     {
