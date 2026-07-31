@@ -1,0 +1,102 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="240" y1="110" x2="1390" y2="980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#120B24"/>
+      <stop offset="0.5" stop-color="#1A1333"/>
+      <stop offset="1" stop-color="#0E0A1A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1240 160) rotate(135.939) scale(420 320)">
+      <stop stop-color="#A855F7" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#A855F7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="frame" x1="220" y1="150" x2="1360" y2="840" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBFAFF"/>
+      <stop offset="1" stop-color="#F2EEFB"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" rx="40" fill="url(#bg)"/>
+  <rect width="1600" height="1000" rx="40" fill="url(#glow)"/>
+  <rect x="206" y="124" width="1188" height="752" rx="34" fill="#1B1432" stroke="#9B6BFF" stroke-opacity="0.26"/>
+  <rect x="222" y="140" width="1156" height="720" rx="26" fill="url(#frame)"/>
+  <rect x="222" y="140" width="1156" height="60" rx="26" fill="#171126"/>
+  <circle cx="264" cy="170" r="7" fill="#F58D8D"/>
+  <circle cx="288" cy="170" r="7" fill="#FFD479"/>
+  <circle cx="312" cy="170" r="7" fill="#77E2A4"/>
+  <text x="286" y="250" fill="#251A41" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">Order synchronization workspace</text>
+  <text x="286" y="282" fill="#706085" font-family="Inter, Arial, sans-serif" font-size="18">Dummy event payloads, checkpoints, and retries. No production identifiers.</text>
+
+  <rect x="286" y="328" width="762" height="472" rx="30" fill="#FFF" stroke="#E0D6F4"/>
+  <text x="322" y="374" fill="#2A1E47" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">Event flow</text>
+  <text x="322" y="402" fill="#7A6C99" font-family="Inter, Arial, sans-serif" font-size="14">Ingestion, validation, dispatch, webhook acknowledgement</text>
+
+  <g>
+    <rect x="334" y="446" width="154" height="92" rx="22" fill="#F7F4FF" stroke="#E0D6F4"/>
+    <text x="362" y="484" fill="#6E5E94" font-family="Inter, Arial, sans-serif" font-size="14">Ingestion</text>
+    <text x="362" y="518" fill="#24183F" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Queued</text>
+  </g>
+  <g>
+    <rect x="534" y="446" width="154" height="92" rx="22" fill="#F7F4FF" stroke="#E0D6F4"/>
+    <text x="562" y="484" fill="#6E5E94" font-family="Inter, Arial, sans-serif" font-size="14">Validation</text>
+    <text x="562" y="518" fill="#24183F" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Passed</text>
+  </g>
+  <g>
+    <rect x="734" y="446" width="154" height="92" rx="22" fill="#F7F4FF" stroke="#E0D6F4"/>
+    <text x="762" y="484" fill="#6E5E94" font-family="Inter, Arial, sans-serif" font-size="14">Dispatch</text>
+    <text x="762" y="518" fill="#24183F" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Sent</text>
+  </g>
+  <g>
+    <rect x="934" y="446" width="78" height="92" rx="22" fill="#F7F4FF" stroke="#E0D6F4"/>
+    <text x="954" y="484" fill="#6E5E94" font-family="Inter, Arial, sans-serif" font-size="14">Ack</text>
+    <text x="954" y="518" fill="#24183F" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">OK</text>
+  </g>
+  <g stroke="#AD84FF" stroke-width="4" stroke-linecap="round">
+    <path d="M488 492H534"/>
+    <path d="M688 492H734"/>
+    <path d="M888 492H934"/>
+  </g>
+
+  <rect x="334" y="584" width="678" height="184" rx="24" fill="#141022"/>
+  <text x="366" y="624" fill="#F5EEFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Replay and retry timeline</text>
+  <g fill="#B8A6D7" font-family="Inter, Arial, sans-serif" font-size="13">
+    <text x="366" y="662">09:10</text>
+    <text x="366" y="700">09:14</text>
+    <text x="366" y="738">09:18</text>
+  </g>
+  <g>
+    <rect x="438" y="646" width="146" height="24" rx="12" fill="#8B5CF6" fill-opacity="0.3"/>
+    <rect x="592" y="684" width="198" height="24" rx="12" fill="#C084FC" fill-opacity="0.28"/>
+    <rect x="806" y="722" width="142" height="24" rx="12" fill="#8B5CF6" fill-opacity="0.36"/>
+  </g>
+  <g stroke="#2A2240">
+    <path d="M438 658H972"/>
+    <path d="M438 696H972"/>
+    <path d="M438 734H972"/>
+  </g>
+
+  <rect x="1076" y="328" width="250" height="218" rx="28" fill="#141022"/>
+  <text x="1106" y="372" fill="#F5EEFF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">Checkpoint status</text>
+  <g>
+    <rect x="1106" y="404" width="190" height="40" rx="14" fill="#1E1730"/>
+    <circle cx="1132" cy="424" r="6" fill="#72E1A0"/>
+    <text x="1150" y="429" fill="#F5EEFF" font-family="Inter, Arial, sans-serif" font-size="14">OAuth token exchange</text>
+  </g>
+  <g>
+    <rect x="1106" y="456" width="190" height="40" rx="14" fill="#1E1730"/>
+    <circle cx="1132" cy="476" r="6" fill="#72E1A0"/>
+    <text x="1150" y="481" fill="#F5EEFF" font-family="Inter, Arial, sans-serif" font-size="14">Webhook signature verified</text>
+  </g>
+  <g>
+    <rect x="1106" y="508" width="190" height="40" rx="14" fill="#1E1730"/>
+    <circle cx="1132" cy="528" r="6" fill="#F4C86B"/>
+    <text x="1150" y="533" fill="#F5EEFF" font-family="Inter, Arial, sans-serif" font-size="14">Retry window monitored</text>
+  </g>
+
+  <rect x="1076" y="570" width="250" height="230" rx="28" fill="#FFF" stroke="#E0D6F4"/>
+  <text x="1106" y="612" fill="#2A1E47" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">Integration notes</text>
+  <g fill="#796A99" font-family="Inter, Arial, sans-serif" font-size="14">
+    <text x="1106" y="654">Dummy payload labels only</text>
+    <text x="1106" y="690">No restaurant names or IDs</text>
+    <text x="1106" y="726">No order references shown</text>
+    <text x="1106" y="762">Status values reflect mock flow</text>
+  </g>
+</svg>

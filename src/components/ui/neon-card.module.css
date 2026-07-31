@@ -1,0 +1,464 @@
+:global(:root) {
+  --neon-card-surface-base: oklch(100% 0 0);
+  --neon-card-surface-low: oklch(97.5% 0.006 286);
+  --neon-card-surface-deep: oklch(95.9% 0.008 286);
+  --neon-card-top-edge: rgb(255 255 255 / 0.82);
+  --neon-card-bottom-shade: rgb(32 18 56 / 0.08);
+  --neon-card-border-base: rgb(168 85 247 / 0.16);
+  --neon-card-border-glow: rgb(168 85 247 / 0.1);
+  --neon-card-border-bleed: rgb(168 85 247 / 0.12);
+  --neon-card-border-inner: rgb(255 255 255 / 0.56);
+  --neon-card-border-hover: rgb(168 85 247 / 0.24);
+  --neon-card-border-glow-hover: rgb(168 85 247 / 0.16);
+  --neon-card-border-bleed-hover: rgb(168 85 247 / 0.18);
+  --neon-card-border-inner-hover: rgb(255 255 255 / 0.74);
+  --neon-card-light-core: rgb(255 255 255 / 0.42);
+  --neon-card-light: rgb(168 85 247 / 0.11);
+  --neon-card-light-secondary: rgb(192 132 252 / 0.06);
+  --neon-card-band: rgb(168 85 247 / 0.04);
+  --neon-card-line: rgb(168 85 247 / 0.024);
+  --neon-card-line-strong: rgb(168 85 247 / 0.036);
+  --neon-card-plane: rgb(255 255 255 / 0.05);
+  --neon-card-vignette: rgb(30 22 47 / 0.08);
+  --neon-card-glow: rgb(168 85 247 / 0.09);
+  --neon-card-glow-hover: rgb(168 85 247 / 0.14);
+  --neon-card-shadow-ambient: 0 24px 54px -34px rgb(15 23 42 / 0.18);
+  --neon-card-shadow-contact: 0 12px 18px -16px rgb(15 23 42 / 0.1);
+  --neon-card-shadow-purple: 0 22px 38px -28px rgb(168 85 247 / 0.16);
+  --neon-card-shadow-ambient-hover: 0 32px 70px -36px rgb(15 23 42 / 0.24);
+  --neon-card-shadow-contact-hover: 0 16px 24px -16px rgb(15 23 42 / 0.14);
+  --neon-card-shadow-purple-hover: 0 26px 46px -28px rgb(168 85 247 / 0.2);
+  --neon-card-chip-surface: rgb(255 255 255 / 0.68);
+  --neon-card-chip-surface-hover: rgb(255 255 255 / 0.8);
+  --neon-card-chip-border: rgb(168 85 247 / 0.16);
+  --neon-card-chip-border-hover: rgb(168 85 247 / 0.26);
+  --neon-card-chip-highlight: rgb(255 255 255 / 0.62);
+  --neon-card-chip-shadow: 0 10px 18px -16px rgb(168 85 247 / 0.14);
+  --neon-card-chip-shadow-hover: 0 14px 24px -18px rgb(168 85 247 / 0.2);
+  --neon-card-grain-opacity: 0.012;
+}
+
+:global(.dark) {
+  --neon-card-surface-base: oklch(19.2% 0.012 286);
+  --neon-card-surface-low: oklch(17.3% 0.011 286);
+  --neon-card-surface-deep: oklch(15.2% 0.011 286);
+  --neon-card-top-edge: rgb(255 255 255 / 0.07);
+  --neon-card-bottom-shade: rgb(0 0 0 / 0.26);
+  --neon-card-border-base: rgb(168 85 247 / 0.18);
+  --neon-card-border-glow: rgb(168 85 247 / 0.14);
+  --neon-card-border-bleed: rgb(148 106 255 / 0.18);
+  --neon-card-border-inner: rgb(255 255 255 / 0.08);
+  --neon-card-border-hover: rgb(196 132 252 / 0.3);
+  --neon-card-border-glow-hover: rgb(196 132 252 / 0.18);
+  --neon-card-border-bleed-hover: rgb(148 106 255 / 0.24);
+  --neon-card-border-inner-hover: rgb(255 255 255 / 0.12);
+  --neon-card-light-core: rgb(250 244 255 / 0.12);
+  --neon-card-light: rgb(168 85 247 / 0.16);
+  --neon-card-light-secondary: rgb(192 132 252 / 0.08);
+  --neon-card-band: rgb(168 85 247 / 0.045);
+  --neon-card-line: rgb(196 132 252 / 0.028);
+  --neon-card-line-strong: rgb(196 132 252 / 0.04);
+  --neon-card-plane: rgb(255 255 255 / 0.034);
+  --neon-card-vignette: rgb(3 0 15 / 0.3);
+  --neon-card-glow: rgb(168 85 247 / 0.13);
+  --neon-card-glow-hover: rgb(196 132 252 / 0.18);
+  --neon-card-shadow-ambient: 0 30px 72px -36px rgb(0 0 0 / 0.78);
+  --neon-card-shadow-contact: 0 16px 28px -18px rgb(0 0 0 / 0.38);
+  --neon-card-shadow-purple: 0 24px 48px -30px rgb(111 75 255 / 0.22);
+  --neon-card-shadow-ambient-hover: 0 38px 90px -38px rgb(0 0 0 / 0.84);
+  --neon-card-shadow-contact-hover: 0 22px 34px -18px rgb(0 0 0 / 0.46);
+  --neon-card-shadow-purple-hover: 0 30px 56px -30px rgb(124 81 255 / 0.3);
+  --neon-card-chip-surface: rgb(255 255 255 / 0.03);
+  --neon-card-chip-surface-hover: rgb(255 255 255 / 0.05);
+  --neon-card-chip-border: rgb(196 132 252 / 0.14);
+  --neon-card-chip-border-hover: rgb(196 132 252 / 0.22);
+  --neon-card-chip-highlight: rgb(255 255 255 / 0.07);
+  --neon-card-chip-shadow: 0 12px 20px -18px rgb(124 81 255 / 0.2);
+  --neon-card-chip-shadow-hover: 0 16px 26px -18px rgb(124 81 255 / 0.26);
+  --neon-card-grain-opacity: 0.009;
+}
+
+.neonCard {
+  --neon-light-x: 84%;
+  --neon-light-y: -10%;
+  --neon-light-spread: 122% 112%;
+  --neon-light-stop: 56%;
+  --neon-secondary-light-x: 16%;
+  --neon-secondary-light-y: 100%;
+  --neon-secondary-light-stop: 62%;
+  --neon-geometry-angle-a: 128deg;
+  --neon-geometry-angle-b: 54deg;
+  --neon-band-angle: 148deg;
+  --neon-geometry-opacity: 0.92;
+  --neon-plane-opacity: 0.8;
+  --neon-glow-opacity: 0.76;
+  border: 1px solid var(--neon-card-border-base);
+  background: linear-gradient(180deg, var(--neon-card-surface-base) 0%, var(--neon-card-surface-low) 54%, var(--neon-card-surface-deep) 100%);
+  box-shadow:
+    inset 0 1px 0 var(--neon-card-top-edge),
+    inset 0 -22px 28px -28px var(--neon-card-bottom-shade),
+    var(--neon-card-shadow-contact),
+    var(--neon-card-shadow-ambient),
+    var(--neon-card-shadow-purple);
+  transition:
+    transform var(--duration-moderate) var(--ease-decelerate),
+    border-color var(--duration-moderate) var(--ease-decelerate),
+    box-shadow var(--duration-moderate) var(--ease-decelerate);
+}
+
+.neonCard[data-variant="a"] {
+  --neon-light-x: 84%;
+  --neon-light-y: -10%;
+  --neon-secondary-light-x: 18%;
+  --neon-secondary-light-y: 106%;
+  --neon-geometry-angle-a: 128deg;
+  --neon-geometry-angle-b: 54deg;
+  --neon-band-angle: 148deg;
+}
+
+.neonCard[data-variant="b"] {
+  --neon-light-x: 16%;
+  --neon-light-y: -8%;
+  --neon-secondary-light-x: 82%;
+  --neon-secondary-light-y: 104%;
+  --neon-geometry-angle-a: 52deg;
+  --neon-geometry-angle-b: 132deg;
+  --neon-band-angle: 34deg;
+}
+
+.neonCard[data-variant="c"] {
+  --neon-light-x: 86%;
+  --neon-light-y: 108%;
+  --neon-light-spread: 126% 118%;
+  --neon-light-stop: 60%;
+  --neon-secondary-light-x: 18%;
+  --neon-secondary-light-y: -8%;
+  --neon-secondary-light-stop: 68%;
+  --neon-geometry-angle-a: 156deg;
+  --neon-geometry-angle-b: 26deg;
+  --neon-band-angle: 168deg;
+  --neon-card-shadow-ambient: 0 34px 80px -38px rgb(15 23 42 / 0.22);
+  --neon-card-shadow-contact: 0 18px 26px -18px rgb(15 23 42 / 0.14);
+  --neon-card-shadow-purple: 0 26px 52px -30px rgb(168 85 247 / 0.2);
+  --neon-card-shadow-ambient-hover: 0 42px 96px -40px rgb(15 23 42 / 0.28);
+  --neon-card-shadow-contact-hover: 0 22px 32px -18px rgb(15 23 42 / 0.18);
+  --neon-card-shadow-purple-hover: 0 32px 60px -30px rgb(168 85 247 / 0.24);
+}
+
+:global(.dark) .neonCard[data-variant="c"] {
+  --neon-card-shadow-ambient: 0 36px 88px -38px rgb(0 0 0 / 0.82);
+  --neon-card-shadow-contact: 0 20px 32px -18px rgb(0 0 0 / 0.44);
+  --neon-card-shadow-purple: 0 28px 56px -30px rgb(124 81 255 / 0.28);
+  --neon-card-shadow-ambient-hover: 0 44px 106px -40px rgb(0 0 0 / 0.88);
+  --neon-card-shadow-contact-hover: 0 24px 36px -18px rgb(0 0 0 / 0.5);
+  --neon-card-shadow-purple-hover: 0 34px 64px -30px rgb(124 81 255 / 0.34);
+}
+
+.neonCard[data-variant="d"] {
+  --neon-light-x: 82%;
+  --neon-light-y: -4%;
+  --neon-light-stop: 48%;
+  --neon-secondary-light-x: 82%;
+  --neon-secondary-light-y: 110%;
+  --neon-secondary-light-stop: 76%;
+  --neon-geometry-angle-a: 136deg;
+  --neon-geometry-angle-b: 46deg;
+  --neon-band-angle: 154deg;
+  --neon-geometry-opacity: 0.54;
+  --neon-plane-opacity: 0.46;
+  --neon-glow-opacity: 0.58;
+  --neon-card-surface-low: oklch(96.9% 0.004 286);
+  --neon-card-surface-deep: oklch(95.2% 0.004 286);
+  --neon-card-border-base: rgb(168 85 247 / 0.12);
+  --neon-card-border-glow: rgb(168 85 247 / 0.06);
+  --neon-card-border-bleed: rgb(168 85 247 / 0.08);
+  --neon-card-border-hover: rgb(168 85 247 / 0.18);
+  --neon-card-light: rgb(168 85 247 / 0.07);
+  --neon-card-light-secondary: rgb(192 132 252 / 0.03);
+  --neon-card-line: rgb(168 85 247 / 0.016);
+  --neon-card-line-strong: rgb(168 85 247 / 0.024);
+  --neon-card-band: rgb(168 85 247 / 0.026);
+  --neon-card-plane: rgb(255 255 255 / 0.03);
+  --neon-card-glow: rgb(168 85 247 / 0.06);
+  --neon-card-glow-hover: rgb(168 85 247 / 0.1);
+}
+
+:global(.dark) .neonCard[data-variant="d"] {
+  --neon-card-surface-base: oklch(17% 0.008 286);
+  --neon-card-surface-low: oklch(15.4% 0.008 286);
+  --neon-card-surface-deep: oklch(13.6% 0.007 286);
+  --neon-card-border-base: rgb(168 85 247 / 0.12);
+  --neon-card-border-glow: rgb(168 85 247 / 0.08);
+  --neon-card-border-bleed: rgb(148 106 255 / 0.1);
+  --neon-card-border-hover: rgb(196 132 252 / 0.18);
+  --neon-card-light: rgb(168 85 247 / 0.08);
+  --neon-card-light-secondary: rgb(192 132 252 / 0.04);
+  --neon-card-line: rgb(196 132 252 / 0.018);
+  --neon-card-line-strong: rgb(196 132 252 / 0.026);
+  --neon-card-band: rgb(168 85 247 / 0.03);
+  --neon-card-plane: rgb(255 255 255 / 0.022);
+  --neon-card-glow: rgb(168 85 247 / 0.08);
+  --neon-card-glow-hover: rgb(196 132 252 / 0.12);
+}
+
+.neonCard[data-variant="hero"] {
+  --neon-light-x: 84%;
+  --neon-light-y: -12%;
+  --neon-light-spread: 128% 116%;
+  --neon-light-stop: 54%;
+  --neon-secondary-light-x: 22%;
+  --neon-secondary-light-y: 102%;
+  --neon-secondary-light-stop: 60%;
+  --neon-geometry-angle-a: 132deg;
+  --neon-geometry-angle-b: 58deg;
+  --neon-band-angle: 152deg;
+  --neon-card-border-base: rgb(168 85 247 / 0.22);
+  --neon-card-border-glow: rgb(168 85 247 / 0.16);
+  --neon-card-border-bleed: rgb(168 85 247 / 0.18);
+  --neon-card-border-inner: rgb(255 255 255 / 0.64);
+  --neon-card-border-hover: rgb(168 85 247 / 0.3);
+  --neon-card-border-glow-hover: rgb(168 85 247 / 0.2);
+  --neon-card-border-bleed-hover: rgb(168 85 247 / 0.24);
+  --neon-card-light: rgb(168 85 247 / 0.14);
+  --neon-card-light-secondary: rgb(192 132 252 / 0.08);
+  --neon-card-band: rgb(168 85 247 / 0.05);
+  --neon-card-line: rgb(168 85 247 / 0.03);
+  --neon-card-line-strong: rgb(168 85 247 / 0.044);
+  --neon-card-plane: rgb(255 255 255 / 0.065);
+  --neon-card-glow: rgb(168 85 247 / 0.12);
+  --neon-card-glow-hover: rgb(168 85 247 / 0.17);
+  --neon-card-shadow-ambient: 0 30px 68px -34px rgb(15 23 42 / 0.24);
+  --neon-card-shadow-contact: 0 16px 22px -16px rgb(15 23 42 / 0.14);
+  --neon-card-shadow-purple: 0 28px 48px -28px rgb(168 85 247 / 0.2);
+  --neon-card-shadow-ambient-hover: 0 38px 86px -36px rgb(15 23 42 / 0.28);
+  --neon-card-shadow-contact-hover: 0 20px 28px -16px rgb(15 23 42 / 0.18);
+  --neon-card-shadow-purple-hover: 0 34px 58px -28px rgb(168 85 247 / 0.24);
+}
+
+:global(.dark) .neonCard[data-variant="hero"] {
+  --neon-card-border-base: rgb(196 132 252 / 0.24);
+  --neon-card-border-glow: rgb(196 132 252 / 0.18);
+  --neon-card-border-bleed: rgb(148 106 255 / 0.24);
+  --neon-card-border-inner: rgb(255 255 255 / 0.1);
+  --neon-card-border-hover: rgb(216 180 255 / 0.32);
+  --neon-card-border-glow-hover: rgb(216 180 255 / 0.22);
+  --neon-card-border-bleed-hover: rgb(148 106 255 / 0.3);
+  --neon-card-light: rgb(196 132 252 / 0.2);
+  --neon-card-light-secondary: rgb(196 132 252 / 0.1);
+  --neon-card-band: rgb(196 132 252 / 0.058);
+  --neon-card-line: rgb(196 132 252 / 0.034);
+  --neon-card-line-strong: rgb(196 132 252 / 0.048);
+  --neon-card-plane: rgb(255 255 255 / 0.04);
+  --neon-card-glow: rgb(196 132 252 / 0.16);
+  --neon-card-glow-hover: rgb(216 180 255 / 0.22);
+  --neon-card-shadow-ambient: 0 36px 88px -34px rgb(0 0 0 / 0.82);
+  --neon-card-shadow-contact: 0 20px 30px -16px rgb(0 0 0 / 0.46);
+  --neon-card-shadow-purple: 0 30px 56px -28px rgb(124 81 255 / 0.3);
+  --neon-card-shadow-ambient-hover: 0 44px 104px -36px rgb(0 0 0 / 0.88);
+  --neon-card-shadow-contact-hover: 0 24px 34px -16px rgb(0 0 0 / 0.52);
+  --neon-card-shadow-purple-hover: 0 36px 64px -28px rgb(124 81 255 / 0.36);
+}
+
+.neonCard[data-dashed="true"] {
+  border-style: dashed;
+}
+
+.neonCard > :not(.layer) {
+  position: relative;
+  z-index: 1;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  transition:
+    transform var(--duration-moderate) var(--ease-decelerate),
+    opacity var(--duration-moderate) var(--ease-decelerate),
+    background-position var(--duration-moderate) var(--ease-decelerate),
+    box-shadow var(--duration-moderate) var(--ease-decelerate),
+    border-color var(--duration-moderate) var(--ease-decelerate),
+    filter var(--duration-moderate) var(--ease-decelerate);
+}
+
+.borderGlow {
+  inset: -1px;
+  border: 1px solid transparent;
+  box-shadow:
+    0 0 0 1px var(--neon-card-border-glow),
+    0 20px 34px -28px var(--neon-card-border-bleed);
+  opacity: 0.88;
+}
+
+.innerBorder {
+  inset: 1px;
+  border: 1px solid var(--neon-card-border-inner);
+  opacity: 0.6;
+}
+
+.neonCard[data-dashed="true"] .innerBorder {
+  border-style: dashed;
+}
+
+.surface {
+  background:
+    radial-gradient(
+      var(--neon-light-spread) at var(--neon-light-x) var(--neon-light-y),
+      var(--neon-card-light-core) 0%,
+      var(--neon-card-light) 14%,
+      transparent var(--neon-light-stop)
+    ),
+    radial-gradient(
+      98% 92% at var(--neon-secondary-light-x) var(--neon-secondary-light-y),
+      var(--neon-card-light-secondary) 0%,
+      transparent var(--neon-secondary-light-stop)
+    ),
+    linear-gradient(180deg, transparent 0%, rgb(255 255 255 / 0.03) 18%, transparent 40%),
+    linear-gradient(180deg, transparent 0%, rgb(0 0 0 / 0.04) 100%);
+  opacity: 0.96;
+}
+
+.geometry {
+  background-image:
+    repeating-linear-gradient(
+      var(--neon-geometry-angle-a),
+      transparent 0 28px,
+      var(--neon-card-line-strong) 28px 29px,
+      transparent 29px 84px
+    ),
+    repeating-linear-gradient(
+      var(--neon-geometry-angle-b),
+      transparent 0 46px,
+      var(--neon-card-line) 46px 47px,
+      transparent 47px 116px
+    );
+  background-position: 0 0, 50% 50%;
+  mask-image: linear-gradient(156deg, transparent 0%, black 16%, black 86%, transparent 100%);
+  opacity: calc(var(--neon-geometry-opacity) * 0.22);
+}
+
+.planes {
+  background:
+    linear-gradient(var(--neon-band-angle), transparent 0%, var(--neon-card-plane) 28%, transparent 56%),
+    linear-gradient(calc(var(--neon-band-angle) - 22deg), transparent 0%, var(--neon-card-band) 36%, transparent 68%),
+    linear-gradient(calc(var(--neon-band-angle) + 18deg), transparent 8%, var(--neon-card-band) 42%, transparent 74%);
+  background-position: 0 0, 100% 0, 0 100%;
+  mask-image: linear-gradient(180deg, black 0%, black 84%, transparent 100%);
+  opacity: calc(var(--neon-plane-opacity) * 0.3);
+}
+
+.vignette {
+  background:
+    linear-gradient(180deg, transparent 0%, rgb(0 0 0 / 0.02) 56%, rgb(0 0 0 / 0.06) 100%),
+    radial-gradient(150% 120% at 50% -6%, transparent 48%, var(--neon-card-vignette) 100%);
+  opacity: 0.9;
+}
+
+.glow {
+  inset: -20% -12% 20% -12%;
+  background:
+    radial-gradient(circle at var(--neon-light-x) calc(var(--neon-light-y) + 10%), var(--neon-card-glow) 0%, transparent 34%),
+    radial-gradient(circle at calc(var(--neon-secondary-light-x) + 4%) var(--neon-secondary-light-y), var(--neon-card-light-secondary) 0%, transparent 28%);
+  filter: blur(18px);
+  opacity: var(--neon-glow-opacity);
+}
+
+.grain {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgb(255 255 255 / 0.9) 0 0.5px, transparent 0.72px),
+    radial-gradient(circle at 76% 28%, rgb(255 255 255 / 0.82) 0 0.46px, transparent 0.68px),
+    radial-gradient(circle at 40% 72%, rgb(255 255 255 / 0.74) 0 0.5px, transparent 0.7px);
+  background-size: 24px 24px, 28px 28px, 18px 18px;
+  mix-blend-mode: overlay;
+  opacity: var(--neon-card-grain-opacity);
+}
+
+.neonCard[data-interactive="true"]:hover,
+.neonCard[data-interactive="true"]:focus-within {
+  border-color: var(--neon-card-border-hover);
+  box-shadow:
+    inset 0 1px 0 var(--neon-card-top-edge),
+    inset 0 -24px 30px -28px var(--neon-card-bottom-shade),
+    var(--neon-card-shadow-contact-hover),
+    var(--neon-card-shadow-ambient-hover),
+    var(--neon-card-shadow-purple-hover);
+  transform: translateY(-3px);
+}
+
+.neonCard[data-interactive="true"]:hover .borderGlow,
+.neonCard[data-interactive="true"]:focus-within .borderGlow {
+  box-shadow:
+    0 0 0 1px var(--neon-card-border-glow-hover),
+    0 24px 40px -28px var(--neon-card-border-bleed-hover);
+}
+
+.neonCard[data-interactive="true"]:hover .innerBorder,
+.neonCard[data-interactive="true"]:focus-within .innerBorder {
+  border-color: var(--neon-card-border-inner-hover);
+  opacity: 0.72;
+}
+
+.neonCard[data-interactive="true"]:hover .surface,
+.neonCard[data-interactive="true"]:focus-within .surface {
+  transform: translate3d(-1.5%, 2%, 0);
+}
+
+.neonCard[data-interactive="true"]:hover .geometry,
+.neonCard[data-interactive="true"]:focus-within .geometry {
+  background-position: 3% -1%, 52% 48%;
+  opacity: calc(var(--neon-geometry-opacity) * 0.27);
+}
+
+.neonCard[data-interactive="true"]:hover .planes,
+.neonCard[data-interactive="true"]:focus-within .planes {
+  background-position: 3% 0, 96% 2%, 1% 98%;
+  opacity: calc(var(--neon-plane-opacity) * 0.35);
+}
+
+.neonCard[data-interactive="true"]:hover .glow,
+.neonCard[data-interactive="true"]:focus-within .glow {
+  background:
+    radial-gradient(circle at calc(var(--neon-light-x) - 2%) calc(var(--neon-light-y) + 12%), var(--neon-card-glow-hover) 0%, transparent 36%),
+    radial-gradient(circle at calc(var(--neon-secondary-light-x) + 6%) calc(var(--neon-secondary-light-y) - 2%), var(--neon-card-light-secondary) 0%, transparent 30%);
+  filter: blur(20px);
+  opacity: calc(var(--neon-glow-opacity) + 0.08);
+}
+
+.chip {
+  border: 1px solid var(--neon-card-chip-border);
+  background:
+    linear-gradient(180deg, var(--neon-card-chip-surface) 0%, transparent 100%),
+    linear-gradient(180deg, color-mix(in oklch, var(--elevated) 94%, transparent) 0%, color-mix(in oklch, var(--surface) 88%, transparent) 100%);
+  box-shadow: inset 0 1px 0 var(--neon-card-chip-highlight), var(--neon-card-chip-shadow);
+  transition:
+    border-color var(--duration-fast) var(--ease-decelerate),
+    box-shadow var(--duration-fast) var(--ease-decelerate),
+    background-color var(--duration-fast) var(--ease-decelerate),
+    transform var(--duration-fast) var(--ease-decelerate);
+}
+
+.chipInteractive:hover,
+.chipInteractive:focus-visible {
+  background:
+    linear-gradient(180deg, var(--neon-card-chip-surface-hover) 0%, transparent 100%),
+    linear-gradient(180deg, color-mix(in oklch, var(--elevated) 96%, transparent) 0%, color-mix(in oklch, var(--surface) 90%, transparent) 100%);
+  border-color: var(--neon-card-chip-border-hover);
+  box-shadow: inset 0 1px 0 var(--neon-card-chip-highlight), var(--neon-card-chip-shadow-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neonCard,
+  .layer,
+  .chip {
+    transition-duration: 0ms;
+  }
+
+  .neonCard[data-interactive="true"]:hover,
+  .neonCard[data-interactive="true"]:focus-within,
+  .neonCard[data-interactive="true"]:hover .surface,
+  .neonCard[data-interactive="true"]:focus-within .surface {
+    transform: none;
+  }
+}

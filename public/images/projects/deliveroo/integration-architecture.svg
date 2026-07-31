@@ -1,0 +1,80 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="220" y1="90" x2="1410" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#130C28"/>
+      <stop offset="0.52" stop-color="#1B1236"/>
+      <stop offset="1" stop-color="#0D0A18"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1260 96) rotate(134.039) scale(460 300)">
+      <stop stop-color="#B574FF" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#B574FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FBF9FF"/>
+      <stop offset="1" stop-color="#F0EBFA"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" rx="40" fill="url(#bg)"/>
+  <rect width="1600" height="900" rx="40" fill="url(#glow)"/>
+  <g opacity="0.2" stroke="#B281FF">
+    <path d="M120 160L520 160"/>
+    <path d="M1080 130L1460 130"/>
+    <path d="M146 760L412 540"/>
+    <path d="M1288 182L1480 374"/>
+  </g>
+  <text x="164" y="120" fill="#F5EEFF" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="700">Integration architecture</text>
+  <text x="164" y="154" fill="#B7A7D4" font-family="Inter, Arial, sans-serif" font-size="18">High-level portfolio diagram with generic service boundaries and no confidential internals.</text>
+
+  <g stroke="#A16DFF" stroke-width="4" stroke-linecap="round">
+    <path d="M360 312H650"/>
+    <path d="M804 312H1110"/>
+    <path d="M805 540H1110"/>
+    <path d="M650 540H360"/>
+    <path d="M730 366V486"/>
+  </g>
+
+  <g>
+    <rect x="156" y="232" width="204" height="160" rx="30" fill="url(#node)" stroke="#DCCAFF"/>
+    <text x="190" y="286" fill="#281D44" font-family="Inter, Arial, sans-serif" font-size="16">Frontend</text>
+    <text x="190" y="330" fill="#1D1533" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Restaurant ops UI</text>
+    <text x="190" y="366" fill="#7B6B9F" font-family="Inter, Arial, sans-serif" font-size="14">Dashboards, status panels, workflows</text>
+  </g>
+  <g>
+    <rect x="1118" y="232" width="250" height="160" rx="30" fill="url(#node)" stroke="#DCCAFF"/>
+    <text x="1152" y="286" fill="#281D44" font-family="Inter, Arial, sans-serif" font-size="16">External</text>
+    <text x="1152" y="330" fill="#1D1533" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Deliveroo API</text>
+    <text x="1152" y="366" fill="#7B6B9F" font-family="Inter, Arial, sans-serif" font-size="14">Orders, menu sync, webhook events</text>
+  </g>
+  <g>
+    <rect x="156" y="460" width="204" height="160" rx="30" fill="#171126" stroke="#A16DFF" stroke-opacity="0.42"/>
+    <text x="190" y="514" fill="#C9B7ED" font-family="Inter, Arial, sans-serif" font-size="16">Services</text>
+    <text x="190" y="558" fill="#F5EEFF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Supabase</text>
+    <text x="190" y="594" fill="#B7A7D4" font-family="Inter, Arial, sans-serif" font-size="14">Auth, data storage, operational state</text>
+  </g>
+  <g>
+    <rect x="1118" y="460" width="250" height="160" rx="30" fill="#171126" stroke="#A16DFF" stroke-opacity="0.42"/>
+    <text x="1152" y="514" fill="#C9B7ED" font-family="Inter, Arial, sans-serif" font-size="16">Inbound</text>
+    <text x="1152" y="558" fill="#F5EEFF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Webhook processor</text>
+    <text x="1152" y="594" fill="#B7A7D4" font-family="Inter, Arial, sans-serif" font-size="14">Validation, routing, acknowledgement</text>
+  </g>
+  <g>
+    <rect x="650" y="222" width="310" height="180" rx="34" fill="#FBF9FF" stroke="#DCCAFF" stroke-width="1.5"/>
+    <text x="692" y="280" fill="#665685" font-family="Inter, Arial, sans-serif" font-size="16">Core backend</text>
+    <text x="692" y="330" fill="#1D1533" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">Order sync API</text>
+    <text x="692" y="366" fill="#7B6B9F" font-family="Inter, Arial, sans-serif" font-size="15">REST orchestration for order ingestion, dispatch, and operational workflows.</text>
+  </g>
+  <g>
+    <rect x="650" y="450" width="310" height="180" rx="34" fill="#FBF9FF" stroke="#DCCAFF" stroke-width="1.5"/>
+    <text x="692" y="508" fill="#665685" font-family="Inter, Arial, sans-serif" font-size="16">Security layer</text>
+    <text x="692" y="558" fill="#1D1533" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">OAuth gateway</text>
+    <text x="692" y="594" fill="#7B6B9F" font-family="Inter, Arial, sans-serif" font-size="15">Authorization handoff, token refresh, and secure integration boundaries.</text>
+  </g>
+
+  <g fill="#D2C3F0" font-family="Inter, Arial, sans-serif" font-size="14">
+    <text x="456" y="302">UI actions</text>
+    <text x="990" y="302">API requests</text>
+    <text x="986" y="530">Webhook events</text>
+    <text x="446" y="530">State updates</text>
+    <text x="762" y="436">OAuth exchange</text>
+  </g>
+</svg>

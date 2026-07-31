@@ -1,0 +1,120 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="240" y1="80" x2="1380" y2="980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#140B2B"/>
+      <stop offset="0.55" stop-color="#1D103A"/>
+      <stop offset="1" stop-color="#0E0A1C"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1290 120) rotate(131.186) scale(480 360)">
+      <stop stop-color="#B37CFF" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#B37CFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(380 880) rotate(-16.862) scale(560 300)">
+      <stop stop-color="#7C4DFF" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#7C4DFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="250" y1="150" x2="1290" y2="850" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#241646"/>
+      <stop offset="1" stop-color="#171128"/>
+    </linearGradient>
+    <linearGradient id="surface" x1="300" y1="170" x2="300" y2="850" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBFAFF"/>
+      <stop offset="1" stop-color="#F0ECFA"/>
+    </linearGradient>
+    <linearGradient id="violetCard" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FBF7FF"/>
+      <stop offset="1" stop-color="#EDE5FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" rx="40" fill="url(#bg)"/>
+  <rect width="1600" height="1000" rx="40" fill="url(#glowA)"/>
+  <rect width="1600" height="1000" rx="40" fill="url(#glowB)"/>
+  <g opacity="0.24" stroke="#A775FF">
+    <path d="M128 152L468 152"/>
+    <path d="M1110 112L1468 112"/>
+    <path d="M1288 180L1486 378"/>
+    <path d="M108 888L436 620"/>
+  </g>
+  <rect x="202" y="118" width="1196" height="764" rx="34" fill="url(#panel)" stroke="#9F73FF" stroke-opacity="0.28"/>
+  <rect x="218" y="134" width="1164" height="732" rx="26" fill="url(#surface)"/>
+  <rect x="218" y="134" width="1164" height="56" rx="26" fill="#17112A"/>
+  <circle cx="258" cy="162" r="7" fill="#F58D8D"/>
+  <circle cx="282" cy="162" r="7" fill="#FFD479"/>
+  <circle cx="306" cy="162" r="7" fill="#77E2A4"/>
+  <rect x="350" y="148" width="210" height="28" rx="14" fill="#2C2147"/>
+  <rect x="1128" y="148" width="170" height="28" rx="14" fill="#241B3A"/>
+
+  <text x="278" y="238" fill="#24183F" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">Restaurant operations</text>
+  <text x="278" y="272" fill="#675884" font-family="Inter, Arial, sans-serif" font-size="18">Dummy operational data only. No merchant or customer information.</text>
+
+  <g>
+    <rect x="278" y="310" width="208" height="118" rx="24" fill="url(#violetCard)" stroke="#D9CBFF"/>
+    <text x="304" y="346" fill="#6C5A92" font-family="Inter, Arial, sans-serif" font-size="16">Orders synchronized</text>
+    <text x="304" y="394" fill="#1E1632" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="700">12.4k</text>
+    <text x="304" y="418" fill="#7E6BA7" font-family="Inter, Arial, sans-serif" font-size="14">Last 7 days</text>
+  </g>
+  <g>
+    <rect x="506" y="310" width="208" height="118" rx="24" fill="#F7F4FF" stroke="#DDD4F5"/>
+    <text x="532" y="346" fill="#6C5A92" font-family="Inter, Arial, sans-serif" font-size="16">Webhook success</text>
+    <text x="532" y="394" fill="#1E1632" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="700">99.2%</text>
+    <text x="532" y="418" fill="#7E6BA7" font-family="Inter, Arial, sans-serif" font-size="14">Stable delivery rate</text>
+  </g>
+  <g>
+    <rect x="734" y="310" width="208" height="118" rx="24" fill="#F7F4FF" stroke="#DDD4F5"/>
+    <text x="760" y="346" fill="#6C5A92" font-family="Inter, Arial, sans-serif" font-size="16">Store health</text>
+    <text x="760" y="394" fill="#1E1632" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="700">Green</text>
+    <text x="760" y="418" fill="#7E6BA7" font-family="Inter, Arial, sans-serif" font-size="14">Queues within target</text>
+  </g>
+  <g>
+    <rect x="962" y="310" width="208" height="118" rx="24" fill="#F7F4FF" stroke="#DDD4F5"/>
+    <text x="988" y="346" fill="#6C5A92" font-family="Inter, Arial, sans-serif" font-size="16">ETA variance</text>
+    <text x="988" y="394" fill="#1E1632" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="700">4.8m</text>
+    <text x="988" y="418" fill="#7E6BA7" font-family="Inter, Arial, sans-serif" font-size="14">Median deviation</text>
+  </g>
+
+  <rect x="278" y="460" width="660" height="312" rx="28" fill="#FBFAFF" stroke="#DED5F6"/>
+  <text x="308" y="502" fill="#2A1F44" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">Order throughput</text>
+  <text x="308" y="528" fill="#7B6B9F" font-family="Inter, Arial, sans-serif" font-size="14">Webhook confirmations and sync latency</text>
+  <g opacity="0.7">
+    <path d="M320 700H900" stroke="#E4DCF6"/>
+    <path d="M320 648H900" stroke="#E4DCF6"/>
+    <path d="M320 596H900" stroke="#E4DCF6"/>
+    <path d="M320 544H900" stroke="#E4DCF6"/>
+  </g>
+  <path d="M334 676C386 654 408 642 452 598C492 558 530 534 570 548C610 562 648 620 696 616C736 612 772 552 820 512C848 488 876 474 904 482" stroke="#8B5CF6" stroke-width="8" stroke-linecap="round"/>
+  <path d="M334 700C382 682 416 666 460 650C510 632 556 616 602 630C650 644 682 694 734 688C786 682 836 634 904 576" stroke="#C084FC" stroke-width="6" stroke-linecap="round" opacity="0.65"/>
+  <g fill="#7A66A3" font-family="Inter, Arial, sans-serif" font-size="14">
+    <text x="326" y="730">Mon</text>
+    <text x="432" y="730">Tue</text>
+    <text x="538" y="730">Wed</text>
+    <text x="644" y="730">Thu</text>
+    <text x="750" y="730">Fri</text>
+    <text x="856" y="730">Sat</text>
+  </g>
+
+  <rect x="968" y="460" width="370" height="312" rx="28" fill="#141021"/>
+  <text x="998" y="502" fill="#F3EDFF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">Operational rails</text>
+  <text x="998" y="528" fill="#AE9CCF" font-family="Inter, Arial, sans-serif" font-size="14">Generic store groups and integration health</text>
+  <g>
+    <rect x="998" y="560" width="310" height="58" rx="18" fill="#1F1731"/>
+    <circle cx="1032" cy="589" r="7" fill="#72E1A0"/>
+    <text x="1052" y="585" fill="#F3EDFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">North hub</text>
+    <text x="1052" y="607" fill="#B6A5D4" font-family="Inter, Arial, sans-serif" font-size="13">Sync latency 1.4m</text>
+  </g>
+  <g>
+    <rect x="998" y="632" width="310" height="58" rx="18" fill="#1F1731"/>
+    <circle cx="1032" cy="661" r="7" fill="#A78BFA"/>
+    <text x="1052" y="657" fill="#F3EDFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Central kitchen</text>
+    <text x="1052" y="679" fill="#B6A5D4" font-family="Inter, Arial, sans-serif" font-size="13">Webhook retries within budget</text>
+  </g>
+  <g>
+    <rect x="998" y="704" width="310" height="58" rx="18" fill="#1F1731"/>
+    <circle cx="1032" cy="733" r="7" fill="#F4C86B"/>
+    <text x="1052" y="729" fill="#F3EDFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Pickup only</text>
+    <text x="1052" y="751" fill="#B6A5D4" font-family="Inter, Arial, sans-serif" font-size="13">One service warning resolved</text>
+  </g>
+
+  <rect x="278" y="796" width="1060" height="40" rx="16" fill="#F5F2FC" stroke="#DED5F6"/>
+  <text x="308" y="821" fill="#6A598E" font-family="Inter, Arial, sans-serif" font-size="14">Daily service note</text>
+  <text x="470" y="821" fill="#24183F" font-family="Inter, Arial, sans-serif" font-size="14">All values shown are dummy metrics used only for portfolio presentation.</text>
+</svg>
