@@ -2,17 +2,42 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-import { ProjectCard } from "@/components/projects/project-card";
-import { projectsContent, type ProjectsContent } from "@/lib/portfolio-content";
+import {
+  ProjectCard,
+  type ProjectCardEmphasis,
+} from "@/components/projects/project-card";
+import { featuredProjectsContent, type ProjectsContent } from "@/lib/portfolio-content";
+import { cn } from "@/lib/utils";
 
 const motionEase = [0.22, 1, 0.36, 1] as const;
+
+const projectLayout: Record<
+  string,
+  {
+    className: string;
+    emphasis: ProjectCardEmphasis;
+  }
+> = {
+  "IRCTC Tatkal Assistant": {
+    className: "lg:col-span-4",
+    emphasis: "large",
+  },
+  "Salon Management System": {
+    className: "lg:col-span-2",
+    emphasis: "medium",
+  },
+  NCollect: {
+    className: "lg:col-span-6",
+    emphasis: "large",
+  },
+};
 
 type ProjectsSectionProps = {
   content: ProjectsContent;
 };
 
 export function ProjectsSection() {
-  return <ProjectsSectionContent content={projectsContent} />;
+  return <ProjectsSectionContent content={featuredProjectsContent} />;
 }
 
 export function ProjectsSectionContent({ content }: ProjectsSectionProps) {
@@ -28,8 +53,8 @@ export function ProjectsSectionContent({ content }: ProjectsSectionProps) {
           hidden: {},
           visible: {
             transition: {
-              staggerChildren: 0.06,
-              delayChildren: 0.04,
+              staggerChildren: 0.05,
+              delayChildren: 0.02,
             },
           },
         },
@@ -41,13 +66,13 @@ export function ProjectsSectionContent({ content }: ProjectsSectionProps) {
         variants: {
           hidden: {
             opacity: 0,
-            y: 18,
+            y: 14,
           },
           visible: {
             opacity: 1,
             y: 0,
             transition: {
-              duration: 0.55,
+              duration: 0.48,
               ease: motionEase,
             },
           },
@@ -55,38 +80,51 @@ export function ProjectsSectionContent({ content }: ProjectsSectionProps) {
       };
 
   return (
-    <section aria-labelledby="projects-heading">
+    <section aria-labelledby="featured-projects-heading">
       <motion.div
         {...containerMotion}
-        className="mx-auto w-full max-w-[var(--layout-hero)] px-[var(--space-gutter)] pb-[var(--space-section)] pt-[var(--space-6)] md:pt-[var(--space-8)]"
+        className="mx-auto w-full max-w-[var(--layout-hero)] px-[var(--space-gutter)] pb-[var(--space-section)] pt-[clamp(1rem,2vw,1.75rem)] md:pt-[clamp(1.25rem,2vw,2rem)]"
       >
-        <div className="space-y-[var(--space-8)]">
+        <div className="space-y-[clamp(2.5rem,4vw,4rem)]">
           <motion.div
             {...itemMotion}
-            className="max-w-[var(--layout-reading)] space-y-[var(--space-3)]"
+            className="grid gap-[var(--space-5)] xl:grid-cols-[minmax(0,0.68fr)_minmax(0,0.32fr)] xl:items-end"
           >
-            <p className="text-sm font-medium uppercase tracking-[var(--tracking-widest)] text-primary">
-              {content.label}
-            </p>
+            <div className="max-w-[48rem] space-y-[var(--space-4)]">
+              <p className="text-sm font-medium uppercase tracking-[var(--tracking-widest)] text-primary">
+                {content.label}
+              </p>
 
-            <h2
-              id="projects-heading"
-              className="max-w-[20ch] scroll-mt-[calc(var(--space-16)+var(--space-4))] text-2xl font-semibold tracking-[var(--tracking-heading)] text-foreground sm:text-3xl xl:text-4xl"
-            >
-              {content.heading}
-            </h2>
+              <h2
+                id="featured-projects-heading"
+                className="max-w-[18ch] scroll-mt-[calc(var(--space-16)+var(--space-4))] text-2xl font-semibold tracking-[var(--tracking-heading)] text-foreground sm:text-3xl xl:text-4xl"
+              >
+                {content.heading}
+              </h2>
+            </div>
 
-            <p className="max-w-[var(--layout-copy)] text-sm leading-relaxed tracking-[var(--tracking-copy)] text-muted-foreground sm:text-base">
+            <p className="max-w-[34rem] text-sm leading-[1.74] tracking-[var(--tracking-copy)] text-muted-foreground sm:text-base xl:justify-self-end xl:text-right">
               {content.introduction}
             </p>
           </motion.div>
 
-          <div className="grid auto-rows-fr gap-[var(--space-4)] md:grid-cols-2">
-            {content.entries.map((project) => (
-              <motion.div key={project.name} {...itemMotion} className="h-full">
-                <ProjectCard project={project} />
-              </motion.div>
-            ))}
+          <div className="grid gap-[clamp(1rem,2vw,1.5rem)] md:grid-cols-2 lg:auto-rows-fr lg:grid-cols-6">
+            {content.entries.map((project) => {
+              const layout = projectLayout[project.name] ?? {
+                className: "lg:col-span-2",
+                emphasis: "medium" as const,
+              };
+
+              return (
+                <motion.div
+                  key={project.name}
+                  {...itemMotion}
+                  className={cn("h-full", layout.className)}
+                >
+                  <ProjectCard project={project} emphasis={layout.emphasis} />
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </motion.div>

@@ -7,19 +7,15 @@ function normalizeSiteUrl(url: string) {
 function getSiteUrl() {
   const envUrl =
     process.env.NEXT_PUBLIC_SITE_URL ??
-    process.env.VERCEL_PROJECT_PRODUCTION_URL;
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ??
+    process.env.VERCEL_URL ??
+    process.env.URL;
 
   if (envUrl) {
     return normalizeSiteUrl(envUrl);
   }
 
-  if (process.env.NODE_ENV !== "production") {
-    return "http://localhost:3000";
-  }
-
-  throw new Error(
-    "Missing production site URL. Set NEXT_PUBLIC_SITE_URL or VERCEL_PROJECT_PRODUCTION_URL before building for production."
-  );
+  return "http://localhost:3000";
 }
 
 const siteUrl = getSiteUrl();

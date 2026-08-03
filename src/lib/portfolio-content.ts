@@ -13,17 +13,17 @@ export type ContentLink = {
   note?: string;
 };
 
-export type AboutSupportingCard = {
+export type AboutPrinciple = {
   title: string;
-  layout: "grid" | "list";
-  items: readonly string[];
+  description: string;
 };
 
 export type AboutContent = {
   label: string;
   heading: string;
-  paragraphs: readonly string[];
-  supportingCards: readonly AboutSupportingCard[];
+  summary: string;
+  principles: readonly AboutPrinciple[];
+  focusAreas: readonly string[];
 };
 
 export type ExperienceEntry = {
@@ -43,17 +43,17 @@ export type ExperienceContent = {
   entries: readonly ExperienceEntry[];
 };
 
-export type SkillCategory = {
+export type EngineeringCapability = {
   title: string;
   description: string;
-  skills: readonly string[];
+  technologies: readonly string[];
 };
 
 export type SkillsContent = {
   label: string;
   heading: string;
   introduction: string;
-  categories: readonly SkillCategory[];
+  capabilities: readonly EngineeringCapability[];
 };
 
 export type FeaturedProjectContent = {
@@ -86,6 +86,22 @@ export type ProjectsContent = {
   entries: readonly ProjectEntry[];
 };
 
+export type ProfessionalProjectEntry = {
+  name: string;
+  description: string;
+  technologies: readonly string[];
+  responsibilities: readonly string[];
+  skills: readonly string[];
+};
+
+export type ProfessionalProjectsContent = {
+  label: string;
+  heading: string;
+  introduction: string;
+  notice: string;
+  entries: readonly ProfessionalProjectEntry[];
+};
+
 export type EngineeringPrinciple = {
   title: string;
   description: string;
@@ -116,63 +132,52 @@ export type ContactContent = {
 
 export const aboutContent = {
   label: "About",
-  heading: "Full-stack developer focused on enterprise web applications, secure services, and API-driven products.",
-  paragraphs: [
-    "I build scalable, enterprise-grade web applications across the frontend and backend with React.js, JavaScript, TypeScript, Node.js, Express.js, Spring Boot, Java, Python, SQL, and RESTful APIs.",
-    "My work covers responsive UI, secure backend services, third-party API integration, scalable application architecture, authentication and authorization, microservices, and performance optimization across SaaS and CRM products.",
+  heading: "A concise engineering profile shaped by product systems, not isolated features.",
+  summary:
+    "I build enterprise-grade web applications across the frontend and backend, with experience in responsive UI, secure services, API integration, scalable application architecture, authentication, and performance optimization.",
+  principles: [
+    {
+      title: "Full-stack ownership",
+      description:
+        "I work across React.js interfaces, backend services, and API-driven workflows instead of treating frontend and backend as separate handoffs.",
+    },
+    {
+      title: "Enterprise product context",
+      description:
+        "Most of my work sits inside SaaS, contact center, CRM, collections, and license management products where roles, workflows, and operational clarity matter.",
+    },
+    {
+      title: "Implementation that scales",
+      description:
+        "Reusable components, secure access control, service boundaries, and performance optimization are part of delivery from the start, not cleanup after launch.",
+    },
   ],
-  supportingCards: [
-    {
-      title: "Experience Areas",
-      layout: "grid",
-      items: [
-        "Enterprise SaaS",
-        "Contact Center Platforms",
-        "Banking CRM",
-        "Loan Recovery Systems",
-        "License Management Systems",
-        "Custom CRM Applications",
-      ],
-    },
-    {
-      title: "Core Work",
-      layout: "list",
-      items: [
-        "Responsive UI",
-        "Secure backend services",
-        "API integration",
-        "Authentication and authorization",
-        "Microservices architecture",
-        "Performance optimization",
-      ],
-    },
+  focusAreas: [
+    "Enterprise SaaS",
+    "Contact Center Platforms",
+    "Banking CRM",
+    "Loan Recovery Systems",
+    "License Management Systems",
+    "Custom CRM Applications",
   ],
 } satisfies AboutContent;
 
 export const experienceContent = {
   label: "Experience",
-  heading: "Experience across enterprise SaaS, CRM, and frontend-led product delivery.",
+  heading: "A timeline of product work across enterprise SaaS, CRM, and operational software.",
   introduction:
-    "Each role below follows the resume and keeps the same projects, responsibilities, and verified technology stacks.",
+    "The same verified roles and technologies, rewritten as a shorter engineering story instead of resume blocks.",
   entries: [
     {
       company: "NextBit Digitech Pvt. Ltd.",
       role: "Software Developer",
       period: "Feb, 2026 - Present",
       overview:
-        "Building enterprise-grade SaaS applications for contact center automation, payment collections, and license management across NDial, NCollect, and the License Management System.",
+        "Leading frontend delivery across NDial, NCollect, and a License Management System, translating contact center and operations workflows into production SaaS interfaces.",
       highlights: [
-        "Built and maintained responsive web applications with React.js, JavaScript, HTML5, CSS3, and Tailwind CSS.",
-        "Created reusable UI components that kept multiple enterprise products consistent.",
-        "Built the NDial frontend for campaign management, call monitoring, reporting dashboards, and administrative modules.",
-        "Implemented Dialer Agent Panel interfaces for call handling, customer information, call dispositions, and real-time campaign activity.",
-        "Connected frontend modules to REST APIs for authentication, user management, campaigns, reports, collections, and real-time operational data.",
-        "Contributed to NCollect by building dashboards for payment collections, customer management, payment tracking, and reporting.",
-        "Built a License Management System for customer subscriptions, license allocation, activation, expiry tracking, renewals, and tenant administration.",
-        "Implemented role-based access control and protected routes for Super Admin, Admin, Team Leaders, and Agents.",
-        "Improved application performance through code splitting, lazy loading, and component reusability.",
-        "Worked with backend developers, UI/UX designers, and product stakeholders in an Agile development environment.",
-        "Used Git and participated in code reviews, testing, debugging, and production deployments.",
+        "Built NDial and NCollect product surfaces for campaign management, call monitoring, collections workflows, reporting dashboards, and administrative modules.",
+        "Implemented role-based access control, protected routes, and REST integrations across authentication, user management, campaigns, reports, collections, and operational data.",
+        "Built license management workflows and improved maintainability through reusable components, code splitting, lazy loading, and cross-functional delivery.",
       ],
       stack: [
         "React.js",
@@ -190,15 +195,11 @@ export const experienceContent = {
       role: "Frontend Developer",
       period: "Oct, 2025 - Jan, 2026",
       overview:
-        "Built a responsive CRM dashboard for customers, leads, sales activities, and employee workflows.",
+        "Built a CRM product surface for customer, lead, sales, and employee workflows with a focus on responsive, data-heavy interfaces.",
       highlights: [
-        "Built a responsive React.js CRM dashboard for customers, leads, sales activities, and employee workflows.",
-        "Created reusable UI components to improve scalability and keep the experience consistent across the application.",
-        "Connected frontend modules to REST APIs for real-time data retrieval and updates.",
-        "Implemented authentication flows, role-based UI rendering, and protected routes for different user roles.",
-        "Built dashboards, tables, forms, filters, and data visualization components for business insights.",
-        "Improved responsiveness and performance through code optimization and efficient component rendering.",
-        "Worked with backend developers and business stakeholders to implement user-centric CRM features.",
+        "Built dashboards, tables, forms, filters, and data visualization components for customers, leads, sales activities, and employee workflows.",
+        "Connected frontend modules to REST APIs and implemented authentication, protected routes, and role-based UI rendering.",
+        "Improved consistency and performance through reusable components, efficient rendering, and close collaboration with backend developers and stakeholders.",
       ],
       stack: [
         "React.js",
@@ -217,15 +218,11 @@ export const experienceContent = {
       role: "Frontend Developer",
       period: "Aug, 2024 - Sep, 2025",
       overview:
-        "Built responsive, API-driven web interfaces with React.js, JavaScript, HTML5, CSS3, and Bootstrap.",
+        "Delivered responsive, API-driven web interfaces and reusable React components for client-facing product experiences.",
       highlights: [
-        "Built responsive web interfaces with React.js, JavaScript, HTML5, CSS3, and Bootstrap.",
-        "Converted UI/UX designs into reusable React components to improve consistency and maintainability.",
-        "Integrated REST APIs to surface dynamic content, service information, and enquiry data.",
-        "Implemented responsive layouts for desktop, tablet, and mobile devices.",
-        "Improved application performance through component optimization, lazy loading, and efficient state management.",
-        "Worked with designers and backend developers to deliver features within Agile development cycles.",
-        "Used Git and participated in testing, debugging, and deployment activities.",
+        "Converted UI/UX designs into reusable React components and responsive layouts for desktop, tablet, and mobile devices.",
+        "Integrated REST APIs to surface dynamic content, service information, and enquiry data across product interfaces.",
+        "Improved performance through component optimization, lazy loading, efficient state management, and collaborative delivery within Agile cycles.",
       ],
       stack: [
         "React.js",
@@ -241,74 +238,79 @@ export const experienceContent = {
 } satisfies ExperienceContent;
 
 export const skillsContent = {
-  label: "Skills",
-  heading: "Skills taken directly from the resume's verified technology list.",
+  label: "Engineering Capabilities",
+  heading: "How I contribute across interface, backend, data, and system design.",
   introduction:
-    "These categories follow the resume's skills section so the portfolio stays aligned with the public source of truth.",
-  categories: [
-    {
-      title: "Programming Languages",
-      description: "Languages listed in the resume skills section.",
-      skills: ["Python", "Java", "JavaScript (ES6+)", "TypeScript", "SQL", "Rust"],
-    },
+    "The same verified stack, grouped around the kind of engineering work it supports instead of resume-style keyword buckets.",
+  capabilities: [
     {
       title: "Frontend",
-      description: "Frontend frameworks, styling tools, and interface skills from the resume.",
-      skills: [
+      description:
+        "Building performant, responsive interfaces with modern React tooling, reusable components, and predictable client-side state.",
+      technologies: [
         "React.js",
+        "Next.js",
         "React Native",
+        "JavaScript (ES6+)",
+        "TypeScript",
         "HTML5",
         "CSS3",
         "Tailwind CSS",
         "Bootstrap",
-        "Responsive Web Design",
+        "Redux Toolkit",
+        "Zustand",
+        "React Router",
+        "Axios",
+        "TanStack Query",
       ],
     },
     {
       title: "Backend",
-      description: "Backend technologies and service patterns listed in the resume.",
-      skills: ["Spring Boot", "Node.js", "Express.js", "Flask", "RESTful APIs", "JWT Authentication"],
+      description:
+        "Designing APIs, authentication flows, business logic, and service layers for operational product workflows.",
+      technologies: [
+        "Spring Boot",
+        "Node.js",
+        "Express.js",
+        "Flask",
+        "Java",
+        "Python",
+      ],
     },
     {
-      title: "State Management & Routing",
-      description: "State and routing tools from the resume.",
-      skills: ["Redux Toolkit", "Zustand", "React Router"],
+      title: "Data",
+      description:
+        "Working with transactional systems, application data models, operational reporting, and persistence across product environments.",
+      technologies: ["PostgreSQL", "MySQL", "MongoDB", "Supabase", "SQL"],
     },
     {
-      title: "API & Data Fetching",
-      description: "API integration and data-fetching tools listed in the resume.",
-      skills: ["Axios", "TanStack Query"],
+      title: "Infrastructure",
+      description:
+        "Supporting delivery through version control, local tooling, build systems, debugging workflows, and deployment-ready development habits.",
+      technologies: ["Docker", "Git", "GitHub", "Postman", "Maven", "npm", "Yarn", "Vite"],
     },
     {
-      title: "Databases",
-      description: "Databases used across the resume's projects and experience.",
-      skills: ["PostgreSQL", "MySQL", "Supabase", "MongoDB"],
-    },
-    {
-      title: "Tools & Technologies",
-      description: "Tools and delivery technologies listed in the resume.",
-      skills: ["Git", "GitHub", "Docker", "Postman", "Visual Studio Code", "Maven", "npm", "Yarn", "Vite"],
-    },
-    {
-      title: "Concepts",
-      description: "Engineering concepts explicitly listed in the resume.",
-      skills: [
+      title: "Engineering",
+      description:
+        "Applying architectural patterns and engineering practices that keep API-driven product systems maintainable as they grow.",
+      technologies: [
         "Responsive Web Design",
         "API Integration",
+        "RESTful APIs",
         "Microservices",
         "OAuth 2.0",
-        "Webhooks",
         "JWT Authentication",
         "Role-Based Access Control (RBAC)",
         "CI/CD",
         "Agile Development",
+        "Rust",
       ],
     },
   ],
 } satisfies SkillsContent;
 
 export const featuredProjectContent = {
-  label: "Selected Project",
+  label: "Featured Project",
   name: "Deliveroo Restaurant Integration Platform",
   summary:
     "Built a full-stack platform that integrated restaurant operations with Deliveroo through responsive dashboards, Deliveroo API integrations, OAuth 2.0, webhook processing, and secure backend services.",
@@ -333,10 +335,10 @@ export const featuredProjectContent = {
 } satisfies FeaturedProjectContent;
 
 export const projectsContent = {
-  label: "More Projects",
-  heading: "Additional projects mapped directly from the resume.",
+  label: "Additional Projects",
+  heading: "Product work across automation, SaaS, and operational systems.",
   introduction:
-    "Deliveroo leads the section. The remaining projects use the same verified descriptions from the resume without adding unverified details.",
+    "A curated mix of browser automation, enterprise workflows, and operational software presented as compact product showcases.",
   entries: [
     {
       name: "IRCTC Tatkal Assistant",
@@ -435,11 +437,106 @@ export const projectsContent = {
   ],
 } satisfies ProjectsContent;
 
+export const professionalProjectsContent = {
+  label: "Enterprise Work",
+  heading: "Professional Experience",
+  introduction:
+    "Selected production systems from company and client environments, presented around business context, responsibilities, and engineering capability rather than confidential implementation details.",
+  notice:
+    "Project visuals, source code, production URLs, and implementation details cannot be shared publicly due to confidentiality agreements.",
+  entries: [
+    {
+      name: "Enterprise CRM Platform",
+      description:
+        "Delivered a production CRM platform for customer, lead, sales, and employee workflows, helping internal teams operate from a single data-driven product surface.",
+      technologies: ["React.js", "Next.js", "Tailwind CSS", "Bootstrap", "REST APIs", "Authentication"],
+      responsibilities: [
+        "Built dashboards, tables, forms, filters, and reporting-oriented interfaces for daily business workflows.",
+        "Integrated secure frontend modules with backend APIs for customers, leads, sales activity, and employee operations.",
+        "Maintained reusable UI patterns and collaborated with backend developers and stakeholders on production delivery.",
+      ],
+      skills: ["Enterprise UI systems", "Role-aware workflows", "Data-heavy interfaces", "API integration"],
+    },
+    {
+      name: "Payment Gateway",
+      description:
+        "Built internal payment and collections workflows for repayment tracking, account status visibility, reporting, and operator productivity across sensitive transaction processes.",
+      technologies: ["React.js", "Next.js", "Tailwind CSS", "REST APIs", "Reporting", "Git"],
+      responsibilities: [
+        "Developed payment tracking dashboards, account queues, and operational reporting modules.",
+        "Connected frontend workflows to collections and payment APIs for synchronized status updates.",
+        "Structured maintainable components for business-critical interfaces used by operations teams.",
+      ],
+      skills: ["Operational dashboards", "Transaction workflows", "Secure data handling", "Workflow optimization"],
+    },
+    {
+      name: "Internal Operations Platform",
+      description:
+        "Delivered internal operations software for campaign administration, access control, licensing workflows, and multi-role team coordination in production SaaS environments.",
+      technologies: ["React.js", "Next.js", "Tailwind CSS", "REST APIs", "RBAC", "Git"],
+      responsibilities: [
+        "Built administrative modules, reporting surfaces, and configuration-heavy internal workflows.",
+        "Implemented role-based access control, protected routes, and maintainable interface architecture.",
+        "Supported ongoing product improvements with reusable components and performance-focused frontend delivery.",
+      ],
+      skills: ["RBAC", "Admin tooling", "Scalable component systems", "Performance optimization"],
+    },
+  ],
+} satisfies ProfessionalProjectsContent;
+
+export const featuredProjectsContent = {
+  label: "Public Work",
+  heading: "Featured Projects",
+  introduction:
+    "Independent projects that can be discussed with visuals, technical decisions, and implementation depth while still matching the same product-minded delivery approach.",
+  entries: [
+    {
+      name: "IRCTC Tatkal Assistant",
+      category: "Chrome extension",
+      summary:
+        "Built a Chrome extension that automates the IRCTC Tatkal booking process with intelligent form autofill and a React.js interface for passenger profiles, journey preferences, and application settings.",
+      highlights: [
+        "Built a React.js interface for managing passenger profiles, journey preferences, and application settings.",
+        "Implemented page detection, validation logic, and secure local storage with Chrome Extension APIs.",
+        "Optimized automation workflows for reliable performance on dynamic IRCTC webpages.",
+      ],
+      stack: ["React.js", "TypeScript", "Vite", "Chrome Extension APIs", "HTML5", "CSS3", "JavaScript", "Git"],
+      links: [],
+    },
+    {
+      name: "Salon Management System",
+      category: "Microservices system",
+      summary:
+        "Built a microservices-based salon management system with a React.js frontend and Spring Boot backend for appointment scheduling, customer management, employee management, and billing.",
+      highlights: [
+        "Built REST APIs for appointment scheduling, customer management, employee management, and billing.",
+        "Implemented role-based authentication and integrated PostgreSQL.",
+        "Built responsive user interfaces and followed a modular architecture with Git-based version control.",
+      ],
+      stack: ["Java", "Spring Boot", "PostgreSQL", "React.js", "REST APIs", "Maven", "Git"],
+      links: [],
+    },
+    {
+      name: "NCollect",
+      category: "Collections workflow platform",
+      summary:
+        "Built dashboards in NCollect for payment collections, customer management, payment tracking, and reporting.",
+      highlights: [
+        "Connected frontend modules to REST APIs for collections, reports, and operational data.",
+        "Built reusable UI components that kept multiple enterprise products consistent.",
+        "Worked with backend developers, designers, and product stakeholders in an Agile environment.",
+      ],
+      stack: ["React.js", "Next.js", "JavaScript (ES6+)", "Tailwind CSS", "REST APIs", "Reporting", "Git"],
+      links: [],
+    },
+  ],
+} satisfies ProjectsContent;
+
 export const engineeringPrinciplesContent = {
   label: "Engineering Principles",
-  heading: "Working rules I actually use when building software.",
+  heading: "Working rules I use when implementation details start shaping the product.",
   introduction:
-    "Short principles that keep product work grounded in implementation reality.",
+    "A minimal set of principles that keeps product work grounded in delivery reality.",
   items: [
     {
       title: "Name the boundary before building the feature",
@@ -471,12 +568,11 @@ export const engineeringPrinciplesContent = {
 
 export const contactContent = {
   label: "Contact",
-  heading: "Resume-verified contact details.",
+  heading: "Get in touch.",
   introduction:
-    "The portfolio contact section is synchronized with the resume and includes only the contact information that appears there.",
-  availability:
-    "Use phone, email, or LinkedIn for professional contact. GitHub and public resume links are not displayed because they are not present in the resume.",
-  closingLine: "Based in New Delhi.",
+    "I'm always open to discussing new opportunities, interesting projects, and collaborations.",
+  availability: "New Delhi, India",
+  closingLine: "Available for opportunities.",
   methods: [
     siteContactDefinitions.phone,
     siteContactDefinitions.email,

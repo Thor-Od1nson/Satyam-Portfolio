@@ -2,11 +2,16 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-import { PrincipleCard } from "@/components/engineering-principles/principle-card";
+import {
+  ContentColumn,
+  EditorialSection,
+  SectionHeader,
+} from "@/components/layout/editorial-layout";
 import {
   engineeringPrinciplesContent,
   type EngineeringPrinciplesContent,
 } from "@/lib/portfolio-content";
+import { cn } from "@/lib/utils";
 
 const motionEase = [0.22, 1, 0.36, 1] as const;
 
@@ -33,8 +38,8 @@ export function EngineeringPrinciplesSectionContent({
           hidden: {},
           visible: {
             transition: {
-              staggerChildren: 0.06,
-              delayChildren: 0.04,
+              staggerChildren: 0.05,
+              delayChildren: 0.02,
             },
           },
         },
@@ -46,13 +51,13 @@ export function EngineeringPrinciplesSectionContent({
         variants: {
           hidden: {
             opacity: 0,
-            y: 18,
+            y: 14,
           },
           visible: {
             opacity: 1,
             y: 0,
             transition: {
-              duration: 0.55,
+              duration: 0.48,
               ease: motionEase,
             },
           },
@@ -60,41 +65,40 @@ export function EngineeringPrinciplesSectionContent({
       };
 
   return (
-    <section aria-labelledby="engineering-principles-heading">
-      <motion.div
-        {...containerMotion}
-        className="mx-auto w-full max-w-[var(--layout-hero)] px-[var(--space-gutter)] pb-[var(--space-section)] pt-[var(--space-6)] md:pt-[var(--space-8)]"
-      >
-        <div className="space-y-[var(--space-8)]">
-          <motion.div
-            {...itemMotion}
-            className="max-w-[var(--layout-reading)] space-y-[var(--space-3)]"
-          >
-            <p className="text-sm font-medium uppercase tracking-[var(--tracking-widest)] text-primary">
-              {content.label}
-            </p>
-
-            <h2
-              id="engineering-principles-heading"
-              className="max-w-[20ch] text-2xl font-semibold tracking-[var(--tracking-heading)] text-foreground sm:text-3xl xl:text-4xl"
-            >
-              {content.heading}
-            </h2>
-
-            <p className="max-w-[var(--layout-copy)] text-sm leading-relaxed tracking-[var(--tracking-copy)] text-muted-foreground sm:text-base">
-              {content.introduction}
-            </p>
+    <EditorialSection aria-labelledby="engineering-principles-heading">
+      <motion.div {...containerMotion} className="space-y-[clamp(2.5rem,4vw,4rem)]">
+        <ContentColumn>
+          <motion.div {...itemMotion}>
+            <SectionHeader
+              eyebrow={content.label}
+              title={content.heading}
+              titleId="engineering-principles-heading"
+              titleClassName="max-w-[15ch]"
+              description={content.introduction}
+            />
           </motion.div>
+        </ContentColumn>
 
-          <div className="grid auto-rows-fr gap-[var(--space-4)] md:grid-cols-2">
-            {content.items.map((principle) => (
-              <motion.div key={principle.title} {...itemMotion} className="h-full">
-                <PrincipleCard principle={principle} />
-              </motion.div>
-            ))}
-          </div>
+        <div className="max-w-[56rem] border-y border-border-subtle/80">
+          {content.items.map((principle, index) => (
+            <motion.article
+              key={principle.title}
+              {...itemMotion}
+              className={cn(
+                "grid gap-3 py-[var(--space-6)] md:grid-cols-[minmax(0,18rem)_1fr] md:gap-[var(--space-6)]",
+                index > 0 ? "border-t border-border-subtle/80" : undefined
+              )}
+            >
+              <h3 className="text-lg font-semibold tracking-[var(--tracking-heading)] text-foreground sm:text-xl">
+                {principle.title}
+              </h3>
+              <p className="max-w-[36rem] text-sm leading-[1.72] tracking-[var(--tracking-copy)] text-muted-foreground sm:text-base">
+                {principle.description}
+              </p>
+            </motion.article>
+          ))}
         </div>
       </motion.div>
-    </section>
+    </EditorialSection>
   );
 }

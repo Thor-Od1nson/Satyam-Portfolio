@@ -3,72 +3,21 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+  ContentColumn,
+  EditorialSection,
+  SectionHeader,
+} from "@/components/layout/editorial-layout";
 import {
   aboutContent,
   type AboutContent,
-  type AboutSupportingCard,
 } from "@/lib/portfolio-content";
+import { cn } from "@/lib/utils";
 
 const motionEase = [0.22, 1, 0.36, 1] as const;
 
 type AboutSectionProps = {
   content: AboutContent;
 };
-
-type AboutSupportingCardProps = {
-  card: AboutSupportingCard;
-};
-
-function AboutSupportingCard({ card }: AboutSupportingCardProps) {
-  const isListLayout = card.layout === "list";
-
-  return (
-    <Card
-      size="sm"
-      className="border border-border bg-elevated shadow-sm ring-1 ring-border/60"
-    >
-      <CardHeader className="gap-2">
-        <CardTitle className="text-lg tracking-[var(--tracking-heading)] text-foreground sm:text-xl">
-          {card.title}
-        </CardTitle>
-      </CardHeader>
-
-      <CardContent>
-        {isListLayout ? (
-          <ul className="grid gap-3" aria-label={card.title}>
-            {card.items.map((item) => (
-              <li key={item} className="flex gap-3 text-sm text-foreground/92">
-                <span
-                  className="mt-2 inline-flex size-2 shrink-0 rounded-full bg-primary"
-                  aria-hidden="true"
-                />
-                <span className="leading-relaxed tracking-[var(--tracking-copy)]">
-                  {item}
-                </span>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <ul className="grid gap-2 sm:grid-cols-2" aria-label={card.title}>
-            {card.items.map((item) => (
-              <li
-                key={item}
-                className="rounded-full border border-border-subtle bg-background px-3 py-2 text-sm font-medium tracking-[var(--tracking-copy)] text-foreground"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        )}
-      </CardContent>
-    </Card>
-  );
-}
 
 export function AboutSection() {
   return <AboutSectionContent content={aboutContent} />;
@@ -87,8 +36,8 @@ export function AboutSectionContent({ content }: AboutSectionProps) {
           hidden: {},
           visible: {
             transition: {
-              staggerChildren: 0.08,
-              delayChildren: 0.04,
+              staggerChildren: 0.06,
+              delayChildren: 0.02,
             },
           },
         },
@@ -100,13 +49,13 @@ export function AboutSectionContent({ content }: AboutSectionProps) {
         variants: {
           hidden: {
             opacity: 0,
-            y: 18,
+            y: 14,
           },
           visible: {
             opacity: 1,
             y: 0,
             transition: {
-              duration: 0.55,
+              duration: 0.48,
               ease: motionEase,
             },
           },
@@ -114,49 +63,59 @@ export function AboutSectionContent({ content }: AboutSectionProps) {
       };
 
   return (
-    <section aria-labelledby="about-heading">
+    <EditorialSection aria-labelledby="about-heading">
       <motion.div
         {...containerMotion}
-        className="mx-auto w-full max-w-[var(--layout-hero)] px-[var(--space-gutter)] pb-[var(--space-section)] pt-[var(--space-6)] md:pt-[var(--space-8)]"
+        className="grid gap-[clamp(2rem,4vw,3.5rem)] xl:grid-cols-[minmax(0,0.52fr)_minmax(0,0.48fr)] xl:items-start xl:gap-[clamp(2.75rem,3.6vw,4.75rem)]"
       >
-        <div className="grid gap-[var(--space-8)] xl:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)] xl:items-start xl:gap-[var(--space-8)]">
-          <div className="max-w-[var(--layout-reading)] space-y-[var(--space-5)]">
-            <motion.div {...itemMotion} className="space-y-[var(--space-3)]">
-              <p className="text-sm font-medium uppercase tracking-[var(--tracking-widest)] text-primary">
-                {content.label}
-              </p>
+        <ContentColumn className="space-y-[var(--space-6)]">
+          <motion.div {...itemMotion}>
+            <SectionHeader
+              eyebrow={content.label}
+              title={content.heading}
+              titleId="about-heading"
+              titleClassName="max-w-[14ch]"
+              description={content.summary}
+              descriptionClassName="max-w-[38rem] text-lg leading-[1.76]"
+            />
+          </motion.div>
 
-              <h2
-                id="about-heading"
-                className="max-w-[18ch] text-2xl font-semibold tracking-[var(--tracking-heading)] text-foreground sm:text-3xl xl:text-4xl"
-              >
-                {content.heading}
-              </h2>
-            </motion.div>
-
-            <motion.div {...itemMotion} className="space-y-[var(--space-4)]">
-              {content.paragraphs.map((paragraph) => (
-                <p
-                  key={paragraph}
-                  className="max-w-[var(--layout-copy)] text-sm leading-relaxed tracking-[var(--tracking-copy)] text-muted-foreground sm:text-base"
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </motion.div>
-          </div>
-
-          <motion.aside
+          <motion.div
             {...itemMotion}
-            className="space-y-[var(--space-4)]"
-            aria-label="About highlights"
+            className="space-y-3 border-t border-border-subtle/80 pt-[var(--space-5)]"
           >
-            {content.supportingCards.map((card) => (
-              <AboutSupportingCard key={card.title} card={card} />
-            ))}
-          </motion.aside>
-        </div>
+            <p className="text-2xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+              Experience areas
+            </p>
+            <p className="max-w-[42rem] text-sm leading-relaxed tracking-[var(--tracking-copy)] text-muted-foreground sm:text-base">
+              {content.focusAreas.join(" • ")}
+            </p>
+          </motion.div>
+        </ContentColumn>
+
+        <motion.div
+          {...itemMotion}
+          className="border-y border-border-subtle/80"
+          aria-label="About principles"
+        >
+          {content.principles.map((principle, index) => (
+            <div
+              key={principle.title}
+              className={cn(
+                "space-y-2.5 py-[var(--space-6)]",
+                index > 0 ? "border-t border-border-subtle/80" : undefined
+              )}
+            >
+              <h3 className="text-lg font-semibold tracking-[var(--tracking-heading)] text-foreground sm:text-xl">
+                {principle.title}
+              </h3>
+              <p className="max-w-[38rem] text-sm leading-[1.72] tracking-[var(--tracking-copy)] text-muted-foreground sm:text-base">
+                {principle.description}
+              </p>
+            </div>
+          ))}
+        </motion.div>
       </motion.div>
-    </section>
+    </EditorialSection>
   );
 }

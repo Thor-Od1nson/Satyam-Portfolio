@@ -66,11 +66,11 @@
   --text-sm: 0.875rem;
   --text-sm--line-height: 1.55;
   --text-base: 1rem;
-  --text-base--line-height: 1.65;
+  --text-base--line-height: 1.7;
   --text-lg: 1.125rem;
-  --text-lg--line-height: 1.65;
+  --text-lg--line-height: 1.68;
   --text-xl: 1.25rem;
-  --text-xl--line-height: 1.5;
+  --text-xl--line-height: 1.56;
   --text-2xl: 1.5rem;
   --text-2xl--line-height: 1.35;
   --text-3xl: 1.875rem;
@@ -212,19 +212,19 @@
   --space-24: 6rem;
   --space-32: 8rem;
   --space-gutter: clamp(1rem, 0.65rem + 1.4vw, 2rem);
-  --space-stack: clamp(1rem, 0.85rem + 0.8vw, 1.5rem);
-  --space-section: clamp(4rem, 7vw, 7rem);
-  --space-section-lg: clamp(6rem, 10vw, 10rem);
+  --space-stack: clamp(1.125rem, 0.95rem + 0.9vw, 1.75rem);
+  --space-section: clamp(4.5rem, 7vw, 7.5rem);
+  --space-section-lg: clamp(6.5rem, 10vw, 10.5rem);
 
   --elevation-2xs: 0 1px 1px rgb(15 23 42 / 0.04);
-  --elevation-xs: 0 2px 6px -3px rgb(15 23 42 / 0.08), 0 1px 2px rgb(15 23 42 / 0.06);
-  --elevation-sm: 0 10px 20px -14px rgb(15 23 42 / 0.12), 0 4px 8px -6px rgb(15 23 42 / 0.08);
-  --elevation-md: 0 18px 34px -18px rgb(15 23 42 / 0.16), 0 8px 14px -10px rgb(15 23 42 / 0.1);
-  --elevation-lg: 0 28px 60px -28px rgb(15 23 42 / 0.2), 0 10px 18px -12px rgb(15 23 42 / 0.12);
-  --elevation-xl: 0 40px 96px -42px rgb(15 23 42 / 0.26), 0 14px 28px -18px rgb(15 23 42 / 0.14);
+  --elevation-xs: 0 4px 10px -6px rgb(15 23 42 / 0.07), 0 1px 2px rgb(15 23 42 / 0.05);
+  --elevation-sm: 0 12px 24px -16px rgb(15 23 42 / 0.11), 0 4px 10px -8px rgb(15 23 42 / 0.07);
+  --elevation-md: 0 20px 40px -22px rgb(15 23 42 / 0.15), 0 8px 16px -12px rgb(15 23 42 / 0.09);
+  --elevation-lg: 0 30px 68px -32px rgb(15 23 42 / 0.18), 0 12px 22px -14px rgb(15 23 42 / 0.11);
+  --elevation-xl: 0 42px 104px -46px rgb(15 23 42 / 0.22), 0 16px 30px -20px rgb(15 23 42 / 0.13);
   --elevation-2xl: 0 56px 144px -56px rgb(15 23 42 / 0.3);
-  --elevation-panel: inset 0 1px 0 rgb(255 255 255 / 0.85), 0 20px 48px -28px rgb(15 23 42 / 0.18);
-  --elevation-glow: 0 0 0 1px rgb(99 78 255 / 0.1), 0 26px 72px -32px rgb(99 78 255 / 0.28);
+  --elevation-panel: inset 0 1px 0 rgb(255 255 255 / 0.88), 0 18px 44px -28px rgb(15 23 42 / 0.16);
+  --elevation-glow: 0 0 0 1px rgb(99 78 255 / 0.08), 0 24px 64px -32px rgb(99 78 255 / 0.22);
 
   --z-base: 0;
   --z-raised: 10;
@@ -305,14 +305,14 @@
   --sidebar-ring: var(--ring);
 
   --elevation-2xs: 0 1px 1px rgb(0 0 0 / 0.24);
-  --elevation-xs: 0 8px 24px -20px rgb(0 0 0 / 0.5), 0 1px 2px rgb(0 0 0 / 0.32);
-  --elevation-sm: 0 18px 34px -26px rgb(0 0 0 / 0.62), 0 8px 14px -10px rgb(0 0 0 / 0.34);
-  --elevation-md: 0 28px 56px -32px rgb(0 0 0 / 0.68), 0 10px 18px -12px rgb(0 0 0 / 0.4);
-  --elevation-lg: 0 36px 80px -38px rgb(0 0 0 / 0.74), 0 14px 24px -16px rgb(0 0 0 / 0.44);
-  --elevation-xl: 0 52px 110px -48px rgb(0 0 0 / 0.8), 0 18px 36px -22px rgb(0 0 0 / 0.48);
+  --elevation-xs: 0 10px 24px -20px rgb(0 0 0 / 0.46), 0 1px 2px rgb(0 0 0 / 0.28);
+  --elevation-sm: 0 18px 38px -28px rgb(0 0 0 / 0.58), 0 8px 14px -10px rgb(0 0 0 / 0.32);
+  --elevation-md: 0 28px 60px -34px rgb(0 0 0 / 0.64), 0 10px 18px -12px rgb(0 0 0 / 0.38);
+  --elevation-lg: 0 38px 86px -42px rgb(0 0 0 / 0.7), 0 14px 24px -16px rgb(0 0 0 / 0.42);
+  --elevation-xl: 0 54px 118px -50px rgb(0 0 0 / 0.76), 0 18px 34px -22px rgb(0 0 0 / 0.46);
   --elevation-2xl: 0 72px 160px -56px rgb(0 0 0 / 0.84);
-  --elevation-panel: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 24px 64px -34px rgb(0 0 0 / 0.78);
-  --elevation-glow: 0 0 0 1px rgb(148 106 255 / 0.16), 0 28px 84px -34px rgb(103 80 255 / 0.42);
+  --elevation-panel: inset 0 1px 0 rgb(255 255 255 / 0.07), 0 24px 60px -34px rgb(0 0 0 / 0.74);
+  --elevation-glow: 0 0 0 1px rgb(148 106 255 / 0.14), 0 28px 76px -34px rgb(103 80 255 / 0.36);
 }
 
 @layer base {
@@ -321,10 +321,39 @@
   }
   html {
     @apply font-sans;
+    scroll-padding-top: calc(var(--space-16) + var(--space-4));
   }
   body {
     @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at top, color-mix(in oklch, var(--primary) 5%, transparent) 0%, transparent 38%),
+      linear-gradient(
+        180deg,
+        color-mix(in oklch, var(--surface) 34%, transparent) 0%,
+        transparent 14%,
+        transparent 86%,
+        color-mix(in oklch, var(--surface) 26%, transparent) 100%
+      );
+    line-height: var(--leading-normal);
     text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
+  a,
+  button,
+  [role="button"] {
+    -webkit-tap-highlight-color: transparent;
   }
   ::selection {
     background-color: var(--selection);

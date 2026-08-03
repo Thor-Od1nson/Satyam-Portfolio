@@ -12,7 +12,7 @@ type ContactCardProps = {
 };
 
 export function ContactCard({ method }: ContactCardProps) {
-  const detail = method.value ?? method.note;
+  const detail = method.note;
   const isExternalWebsite = method.href?.startsWith("http") ?? false;
   const isInteractive = Boolean(method.href && method.value);
 
@@ -44,9 +44,9 @@ export function ContactCard({ method }: ContactCardProps) {
     <Card
       size="sm"
       className={cn(
-        "h-full border border-border bg-elevated shadow-sm ring-1 ring-border/60",
+        "h-full border border-border bg-elevated shadow-xs ring-1 ring-border/50",
         isInteractive
-          ? "transition-transform duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:-translate-y-0.5 hover:shadow-md focus-within:-translate-y-0.5 focus-within:shadow-md focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background"
+          ? "transition-[transform,box-shadow,border-color,background-color] duration-[var(--duration-fast)] ease-[var(--ease-standard)] hover:-translate-y-0.5 hover:border-border-strong hover:shadow-sm focus-within:-translate-y-0.5 focus-within:border-border-strong focus-within:shadow-sm focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background"
           : undefined
       )}
     >

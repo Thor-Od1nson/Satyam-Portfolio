@@ -3,21 +3,32 @@ import { ContactSection } from "@/components/contact/contact-section";
 import { EngineeringPrinciplesSection } from "@/components/engineering-principles/engineering-principles-section";
 import { ExperienceSection } from "@/components/experience/experience-section";
 import { Hero } from "@/components/hero/hero";
+import {
+  EditorialPage,
+  SectionDivider,
+} from "@/components/layout/editorial-layout";
+import { ProfessionalExperienceSection } from "@/components/projects/professional-experience-section";
 import { ProjectsSection } from "@/components/projects/projects-section";
-import { SelectedProject } from "@/components/selected-project/selected-project";
 import { SkillsSection } from "@/components/skills/skills-section";
 
 export default function Home() {
   return (
-    <>
+    <EditorialPage>
       <Hero />
-      <SelectedProject />
+      <SectionDivider />
+      <ProfessionalExperienceSection />
+      <SectionDivider />
       <AboutSection />
+      <SectionDivider />
       <ExperienceSection />
+      <SectionDivider />
       <SkillsSection />
+      <SectionDivider />
       <ProjectsSection />
+      <SectionDivider />
       <EngineeringPrinciplesSection />
+      <SectionDivider />
       <ContactSection />
-    </>
+    </EditorialPage>
   );
 }

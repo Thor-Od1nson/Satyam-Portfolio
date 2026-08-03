@@ -10,10 +10,7 @@ const projectSurfaceVariants: Record<string, NeonCardVariant> = {
   [featuredProjectContent.name]: "hero",
   "IRCTC Tatkal Assistant": "a",
   "Salon Management System": "b",
-  NDial: "c",
   NCollect: "d",
-  CRM: "a",
-  "License Management System": "b",
 };
 
 const caseStudyVariants: Record<string, NeonCardVariant> = {

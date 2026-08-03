@@ -2,8 +2,14 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-import { ExperienceCard } from "@/components/experience/experience-card";
+import { ExperienceTimelineItem } from "@/components/experience/experience-timeline-item";
+import {
+  ContentColumn,
+  EditorialSection,
+  SectionHeader,
+} from "@/components/layout/editorial-layout";
 import { experienceContent, type ExperienceContent } from "@/lib/portfolio-content";
+import { cn } from "@/lib/utils";
 
 const motionEase = [0.22, 1, 0.36, 1] as const;
 
@@ -28,8 +34,8 @@ export function ExperienceSectionContent({ content }: ExperienceSectionProps) {
           hidden: {},
           visible: {
             transition: {
-              staggerChildren: 0.08,
-              delayChildren: 0.04,
+              staggerChildren: 0.06,
+              delayChildren: 0.02,
             },
           },
         },
@@ -41,13 +47,13 @@ export function ExperienceSectionContent({ content }: ExperienceSectionProps) {
         variants: {
           hidden: {
             opacity: 0,
-            y: 18,
+            y: 14,
           },
           visible: {
             opacity: 1,
             y: 0,
             transition: {
-              duration: 0.55,
+              duration: 0.48,
               ease: motionEase,
             },
           },
@@ -55,38 +61,52 @@ export function ExperienceSectionContent({ content }: ExperienceSectionProps) {
       };
 
   return (
-    <section aria-labelledby="experience-heading">
+    <EditorialSection aria-labelledby="experience-heading">
       <motion.div
         {...containerMotion}
-        className="mx-auto w-full max-w-[var(--layout-hero)] px-[var(--space-gutter)] pb-[var(--space-section)] pt-[var(--space-6)] md:pt-[var(--space-8)]"
+        className="grid gap-[clamp(2rem,4vw,3.5rem)] xl:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)] xl:items-start xl:gap-[clamp(2.75rem,3.6vw,4.75rem)]"
       >
-        <div className="space-y-[var(--space-8)]">
-          <motion.div {...itemMotion} className="max-w-[var(--layout-reading)] space-y-[var(--space-3)]">
-            <p className="text-sm font-medium uppercase tracking-[var(--tracking-widest)] text-primary">
-              {content.label}
-            </p>
-
-            <h2
-              id="experience-heading"
-              className="max-w-[20ch] text-2xl font-semibold tracking-[var(--tracking-heading)] text-foreground sm:text-3xl xl:text-4xl"
-            >
-              {content.heading}
-            </h2>
-
-            <p className="max-w-[var(--layout-copy)] text-sm leading-relaxed tracking-[var(--tracking-copy)] text-muted-foreground sm:text-base">
-              {content.introduction}
-            </p>
+        <ContentColumn>
+          <motion.div {...itemMotion}>
+            <SectionHeader
+              eyebrow={content.label}
+              title={content.heading}
+              titleId="experience-heading"
+              titleClassName="max-w-[15ch]"
+              description={content.introduction}
+            />
           </motion.div>
+        </ContentColumn>
 
-          <div className="grid gap-[var(--space-4)]">
-            {content.entries.map((entry) => (
-              <motion.div key={`${entry.company}-${entry.role}`} {...itemMotion}>
-                <ExperienceCard entry={entry} />
-              </motion.div>
-            ))}
-          </div>
-        </div>
+        <ol className="relative" aria-label="Experience timeline">
+          {content.entries.map((entry, index) => {
+            const isLast = index === content.entries.length - 1;
+
+            return (
+              <li
+                key={`${entry.company}-${entry.role}`}
+                className={cn("relative pl-8 sm:pl-9", !isLast ? "pb-[var(--space-12)]" : undefined)}
+              >
+                {!isLast ? (
+                  <span
+                    className="absolute left-[0.48rem] top-[1.05rem] bottom-[0.25rem] w-px bg-border-subtle/90"
+                    aria-hidden="true"
+                  />
+                ) : null}
+
+                <span
+                  className="absolute left-0 top-[0.72rem] inline-flex size-3 rounded-full border-[3px] border-background bg-primary shadow-[0_0_0_1px_var(--border-subtle)]"
+                  aria-hidden="true"
+                />
+
+                <motion.div {...itemMotion}>
+                  <ExperienceTimelineItem entry={entry} />
+                </motion.div>
+              </li>
+            );
+          })}
+        </ol>
       </motion.div>
-    </section>
+    </EditorialSection>
   );
 }

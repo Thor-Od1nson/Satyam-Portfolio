@@ -1,0 +1,249 @@
+.card {
+  display: grid;
+  gap: var(--space-6);
+  height: 100%;
+}
+
+.previewColumn,
+.copyColumn {
+  min-width: 0;
+}
+
+.copyColumn {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.previewFrame {
+  position: relative;
+  display: grid;
+  gap: var(--space-3);
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  border: 1px solid color-mix(in oklch, var(--border-subtle) 88%, transparent);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--elevated) 95%, transparent) 0%,
+      color-mix(in oklch, var(--surface) 93%, transparent) 100%
+    );
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.24);
+}
+
+.previewFrame::after {
+  content: "";
+  position: absolute;
+  inset: auto -14% -22% auto;
+  width: 52%;
+  height: 52%;
+  border-radius: 9999px;
+  background: radial-gradient(circle, color-mix(in oklch, var(--primary) 8%, transparent) 0%, transparent 72%);
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+.previewHeader {
+  padding: var(--space-4) var(--space-4) 0;
+}
+
+.previewMedia {
+  position: relative;
+  margin: 0 var(--space-4) var(--space-4);
+  overflow: hidden;
+  border-radius: calc(var(--radius-2xl) - 0.25rem);
+  border: 1px solid color-mix(in oklch, var(--border-subtle) 88%, transparent);
+  background: color-mix(in oklch, var(--elevated) 95%, transparent);
+  padding: 0.5rem;
+}
+
+.previewMediaInset {
+  position: absolute;
+  inset: 0.5rem;
+  overflow: hidden;
+  border-radius: calc(var(--radius-2xl) - 0.625rem);
+  border: 1px solid color-mix(in oklch, var(--border-subtle) 88%, transparent);
+  box-shadow: 0 16px 36px -24px color-mix(in oklch, var(--foreground) 12%, transparent);
+  transition:
+    transform var(--duration-moderate) var(--ease-decelerate),
+    box-shadow var(--duration-moderate) var(--ease-decelerate);
+}
+
+.previewMediaLarge {
+  aspect-ratio: 16 / 9;
+}
+
+.previewMediaMedium {
+  aspect-ratio: 16 / 11;
+}
+
+.previewMediaCompact {
+  aspect-ratio: 16 / 12;
+}
+
+.previewImage {
+  object-fit: cover;
+  transition: transform var(--duration-moderate) var(--ease-decelerate);
+}
+
+.previewOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.05) 0%, transparent 18%),
+    radial-gradient(circle at 84% 16%, color-mix(in oklch, var(--primary) 8%, transparent) 0%, transparent 38%);
+  pointer-events: none;
+}
+
+.category,
+.metaLabel,
+.statusLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.category {
+  color: var(--primary);
+}
+
+.statusLabel {
+  color: var(--muted-foreground);
+}
+
+.summary {
+  max-width: 42rem;
+  font-size: 0.96rem;
+  line-height: 1.76;
+  letter-spacing: var(--tracking-copy);
+  color: var(--muted-foreground);
+}
+
+.metaRow,
+.artifact {
+  display: grid;
+  gap: 0.75rem;
+  padding-top: var(--space-4);
+  border-top: 1px solid color-mix(in oklch, var(--border-subtle) 62%, transparent);
+}
+
+.metaLabel {
+  color: var(--muted-foreground);
+}
+
+.metaValue {
+  font-size: 0.9rem;
+  line-height: 1.68;
+  letter-spacing: var(--tracking-copy);
+  color: color-mix(in oklch, var(--foreground) 82%, transparent);
+}
+
+.artifactGrid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.artifactStep {
+  position: relative;
+  display: flex;
+  min-height: 4.25rem;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: calc(var(--radius-xl) - 0.125rem);
+  border: 1px solid color-mix(in oklch, var(--border-subtle) 82%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in oklch, var(--elevated) 97%, transparent) 0%, transparent 100%),
+    color-mix(in oklch, var(--surface) 95%, transparent);
+  padding: 0.85rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-heading);
+  color: var(--foreground);
+}
+
+.artifactStep::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 1px;
+  background: color-mix(in oklch, var(--primary) 20%, transparent);
+}
+
+.linkRow {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem 1.1rem;
+  padding-top: var(--space-2);
+}
+
+@media (min-width: 48rem) {
+  .compact {
+    grid-template-columns: minmax(0, 1.02fr) minmax(12rem, 0.88fr);
+    align-items: start;
+  }
+
+  .compact .copyColumn {
+    gap: var(--space-3);
+  }
+
+  .compactArtifactGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .artifactGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .compactArtifactGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 80rem) {
+  .large {
+    grid-template-columns: minmax(0, 1.12fr) minmax(20rem, 0.88fr);
+    align-items: start;
+  }
+
+  .large .copyColumn {
+    padding-top: var(--space-2);
+  }
+}
+
+@media (hover: hover) {
+  .card:hover .previewMediaInset,
+  .card:focus-within .previewMediaInset {
+    transform: translateY(-1px);
+    box-shadow: 0 20px 42px -26px color-mix(in oklch, var(--foreground) 14%, transparent);
+  }
+
+  .card:hover .previewImage,
+  .card:focus-within .previewImage {
+    transform: scale(1.012);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .previewImage {
+    transition-duration: 0ms;
+  }
+
+  .previewMediaInset {
+    transition-duration: 0ms;
+  }
+
+  .card:hover .previewImage,
+  .card:focus-within .previewImage,
+  .card:hover .previewMediaInset,
+  .card:focus-within .previewMediaInset {
+    transform: none;
+  }
+}

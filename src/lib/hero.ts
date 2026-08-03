@@ -4,56 +4,44 @@ export type HeroContent = {
   name: string;
   title: string;
   introduction: string;
-  availability: {
+  signals: ReadonlyArray<{
     label: string;
-    title: string;
-    description: string;
-  };
-  featuredProject: {
-    label: string;
-    title: string;
-    description: string;
-    highlights: readonly string[];
-    note: string;
-  };
+    value: string;
+  }>;
   ctas: ReadonlyArray<{
     label: string;
     kind: "default" | "secondary" | "outline";
     href?: string;
     external?: boolean;
   }>;
-  availabilityNote: string;
+  footnote: string;
 };
 
 export const heroContent: HeroContent = {
   name: siteIdentity.name,
-  title: siteIdentity.heroRole,
+  title:
+    "Full-Stack Developer building scalable web applications, secure backend services, and API integrations.",
   introduction:
-    "Full-stack developer building scalable, enterprise-grade web applications, secure backend services, and API-driven workflows with React.js, Node.js, Express.js, and Spring Boot.",
-  availability: {
-    label: "Based in New Delhi",
-    title: "Resume-verified contact details and project history.",
-    description:
-      "Everything shown here stays aligned with the resume and is limited to verified experience, skills, and project work.",
-  },
-  featuredProject: {
-    label: "Featured Project Preview",
-    title: "Deliveroo Restaurant Integration Platform",
-    description:
-      "Built a full-stack platform that connected restaurant operations with Deliveroo through responsive dashboards, Deliveroo API integrations, OAuth 2.0, webhook processing, and secure backend services.",
-    highlights: [
-      "React.js dashboards",
-      "Node.js and Express.js APIs",
-      "OAuth 2.0 and webhooks",
-      "Supabase-backed services",
-    ],
-    note: "This project summary is taken directly from the resume project section.",
-  },
+    "I work across React.js, Next.js, Node.js, Express.js, and Spring Boot to ship systems that move cleanly from interface to backend workflow.",
+  signals: [
+    {
+      label: "Who I am",
+      value: "A full-stack developer based in New Delhi with experience across enterprise SaaS, CRM, and operational software.",
+    },
+    {
+      label: "What I build",
+      value: "Responsive product surfaces, secure backend services, API integrations, and role-aware workflows for real business systems.",
+    },
+    {
+      label: "Why scroll",
+      value: "The rest of the page shows the product contexts, engineering capabilities, and implementation principles behind that work.",
+    },
+  ],
   ctas: [
     {
-      label: "View Projects",
+      label: "View Work",
       kind: "default",
-      href: "/#projects-heading",
+      href: "/#selected-project-heading",
     },
     {
       label: "Email",
@@ -62,11 +50,11 @@ export const heroContent: HeroContent = {
       external: true,
     },
     {
-      label: "Contact",
+      label: "Experience",
       kind: "outline",
-      href: "/#contact-heading",
+      href: "/#experience-heading",
     },
   ],
-  availabilityNote:
-    "Phone, email, and LinkedIn are available below.",
+  footnote:
+    "Recent work includes Deliveroo integrations, contact center products, CRM workflows, collections dashboards, and license management systems.",
 } as const;

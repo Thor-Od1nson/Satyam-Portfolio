@@ -5,6 +5,15 @@ export type ProjectVisualAsset = {
   height: number;
 };
 
+export type ProjectShowcaseVisual = {
+  imageLabel: string;
+  image: ProjectVisualAsset;
+  artifact: {
+    label: string;
+    items: readonly string[];
+  };
+};
+
 export const featuredProjectPreviewVisuals = {
   productSurface: {
     src: "/images/projects/deliveroo/dashboard-overview.svg",
@@ -70,3 +79,45 @@ export const projectCaseStudyGalleryVisuals = {
     },
   ],
 } satisfies Record<string, readonly { title: string; description: string; image: ProjectVisualAsset }[]>;
+
+export const projectShowcaseVisuals: Record<string, ProjectShowcaseVisual> = {
+  "IRCTC Tatkal Assistant": {
+    imageLabel: "Automation interface",
+    image: {
+      src: "/images/projects/irctc/tatkal-automation-surface.svg",
+      alt: "Mock browser automation interface showing passenger profiles, route selection, readiness indicators, and booking controls with dummy data.",
+      width: 1600,
+      height: 1000,
+    },
+    artifact: {
+      label: "Booking workflow",
+      items: ["Profiles", "Journey", "Autofill", "Validation"],
+    },
+  },
+  "Salon Management System": {
+    imageLabel: "Operations board",
+    image: {
+      src: "/images/projects/salon/operations-board.svg",
+      alt: "Mock salon operations dashboard showing appointments, customer activity, staff schedules, and billing widgets with dummy data.",
+      width: 1600,
+      height: 1000,
+    },
+    artifact: {
+      label: "System modules",
+      items: ["Bookings", "Customers", "Staff", "Billing"],
+    },
+  },
+  NCollect: {
+    imageLabel: "Collections dashboard",
+    image: {
+      src: "/images/projects/ncollect/collections-dashboard.svg",
+      alt: "Mock collections dashboard showing payment tracking, account queues, promise status, and reporting panels with dummy data.",
+      width: 1600,
+      height: 1000,
+    },
+    artifact: {
+      label: "Collections workflow",
+      items: ["Accounts", "Promises", "Payments", "Reports"],
+    },
+  },
+};
