@@ -78,7 +78,6 @@ export const siteConfig = {
     "Deliveroo Restaurant Integration Platform",
     "IRCTC Tatkal Assistant",
     "Salon Management System",
-    "NCollect",
     "NDial",
     "License Management System",
     "CRM dashboard",

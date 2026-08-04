@@ -72,7 +72,7 @@ export type FeaturedProjectContent = {
 export type ProjectEntry = {
   name: string;
   category: string;
-  status?: "production" | "active" | "learning" | "archived";
+  status?: "production" | "active" | "learning" | "archived" | "under-development";
   summary: string;
   highlights: readonly string[];
   stack: readonly string[];
@@ -88,10 +88,12 @@ export type ProjectsContent = {
 
 export type ProfessionalProjectEntry = {
   name: string;
+  status?: string;
   description: string;
   technologies: readonly string[];
   responsibilities: readonly string[];
   skills: readonly string[];
+  notice?: string;
 };
 
 export type ProfessionalProjectsContent = {
@@ -386,19 +388,6 @@ export const projectsContent = {
       ],
     },
     {
-      name: "NCollect",
-      category: "Collections platform",
-      summary:
-        "Built dashboards in NCollect for payment collections, customer management, payment tracking, and reporting.",
-      highlights: [
-        "Connected frontend modules to REST APIs for collections, reports, and operational data.",
-        "Built reusable UI components that kept multiple enterprise products consistent.",
-        "Worked with backend developers, designers, and product stakeholders in an Agile environment.",
-      ],
-      stack: ["React.js", "Next.js", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS", "REST APIs", "Git"],
-      links: [],
-    },
-    {
       name: "License Management System",
       category: "SaaS operations",
       summary:
@@ -441,15 +430,53 @@ export const professionalProjectsContent = {
   label: "Enterprise Work",
   heading: "Professional Experience",
   introduction:
-    "Selected production systems from company and client environments, presented around business context, responsibilities, and engineering capability rather than confidential implementation details.",
-  notice:
-    "Project visuals, source code, production URLs, and implementation details cannot be shared publicly due to confidentiality agreements.",
+    "Enterprise software and internal platforms I have contributed to during my professional experience.",
+  notice: "",
   entries: [
+    {
+      name: "NDial – AI Contact Center Platform",
+      status: "Under Development",
+      description:
+        "Contributed to an enterprise contact center platform designed for campaign execution, agent operations, live call handling, and performance monitoring across high-volume communication workflows.",
+      technologies: ["Next.js", "React", "JavaScript", "Tailwind CSS", "REST APIs", "Git"],
+      responsibilities: [
+        "Built campaign management, live monitoring, and administrative interfaces used by contact center teams.",
+        "Developed agent-facing workflows for call activity, customer context, dispositions, and reporting-connected operational tasks.",
+        "Integrated frontend modules with secure REST APIs for authentication, user management, campaigns, reports, and operational data.",
+      ],
+      skills: [
+        "Contact center workflows",
+        "Agent experience design",
+        "Operational dashboards",
+        "API integration",
+        "Reusable component systems",
+      ],
+    },
+    {
+      name: "NCollect – Enterprise Collections Platform",
+      status: "Under Development",
+      description:
+        "Contributed to an internal enterprise collections platform used to manage account portfolios, configure role-based workflows, import structured customer data, and monitor collection performance.",
+      technologies: ["Next.js", "React", "JavaScript", "Tailwind CSS", "Redux Toolkit", "Axios"],
+      responsibilities: [
+        "Built portfolio management interfaces and role-based workflows for internal collections operations.",
+        "Delivered dynamic admin interfaces and reusable rule-builder experiences for configurable operational flows.",
+        "Implemented spreadsheet-driven data import and secure REST API integrations for structured account data.",
+      ],
+      skills: [
+        "Portfolio management",
+        "Role-based access control",
+        "Dynamic admin interfaces",
+        "Spreadsheet-driven data import",
+        "Rule-based workflow builder",
+        "REST API integration",
+      ],
+    },
     {
       name: "Enterprise CRM Platform",
       description:
-        "Delivered a production CRM platform for customer, lead, sales, and employee workflows, helping internal teams operate from a single data-driven product surface.",
-      technologies: ["React.js", "Next.js", "Tailwind CSS", "Bootstrap", "REST APIs", "Authentication"],
+        "Contributed to an enterprise CRM platform that unified customer, lead, sales, and employee workflows into a single operational product surface for internal business teams.",
+      technologies: ["Next.js", "React", "JavaScript", "Tailwind CSS", "Bootstrap", "REST APIs"],
       responsibilities: [
         "Built dashboards, tables, forms, filters, and reporting-oriented interfaces for daily business workflows.",
         "Integrated secure frontend modules with backend APIs for customers, leads, sales activity, and employee operations.",
@@ -458,28 +485,22 @@ export const professionalProjectsContent = {
       skills: ["Enterprise UI systems", "Role-aware workflows", "Data-heavy interfaces", "API integration"],
     },
     {
-      name: "Payment Gateway",
+      name: "License Management System",
       description:
-        "Built internal payment and collections workflows for repayment tracking, account status visibility, reporting, and operator productivity across sensitive transaction processes.",
-      technologies: ["React.js", "Next.js", "Tailwind CSS", "REST APIs", "Reporting", "Git"],
+        "Contributed to an enterprise license management product used to handle subscription lifecycle workflows, license allocation, activation, renewal tracking, and tenant administration.",
+      technologies: ["Next.js", "React", "JavaScript", "Tailwind CSS", "REST APIs", "Git"],
       responsibilities: [
-        "Developed payment tracking dashboards, account queues, and operational reporting modules.",
-        "Connected frontend workflows to collections and payment APIs for synchronized status updates.",
-        "Structured maintainable components for business-critical interfaces used by operations teams.",
+        "Built administrative workflows for license allocation, activation status, renewal tracking, and tenant-level operations.",
+        "Implemented role-based access control, protected routes, and maintainable interface patterns for multi-role internal users.",
+        "Improved maintainability and delivery speed through reusable components, code splitting, and lazy loading.",
       ],
-      skills: ["Operational dashboards", "Transaction workflows", "Secure data handling", "Workflow optimization"],
-    },
-    {
-      name: "Internal Operations Platform",
-      description:
-        "Delivered internal operations software for campaign administration, access control, licensing workflows, and multi-role team coordination in production SaaS environments.",
-      technologies: ["React.js", "Next.js", "Tailwind CSS", "REST APIs", "RBAC", "Git"],
-      responsibilities: [
-        "Built administrative modules, reporting surfaces, and configuration-heavy internal workflows.",
-        "Implemented role-based access control, protected routes, and maintainable interface architecture.",
-        "Supported ongoing product improvements with reusable components and performance-focused frontend delivery.",
+      skills: [
+        "Role-based access control",
+        "Subscription workflows",
+        "Admin tooling",
+        "Scalable component systems",
+        "Performance optimization",
       ],
-      skills: ["RBAC", "Admin tooling", "Scalable component systems", "Performance optimization"],
     },
   ],
 } satisfies ProfessionalProjectsContent;
@@ -488,7 +509,7 @@ export const featuredProjectsContent = {
   label: "Public Work",
   heading: "Featured Projects",
   introduction:
-    "Independent projects that can be discussed with visuals, technical decisions, and implementation depth while still matching the same product-minded delivery approach.",
+    "A selection of personal and open-source projects showcasing architecture, product thinking, and full-stack development.",
   entries: [
     {
       name: "IRCTC Tatkal Assistant",
@@ -504,6 +525,36 @@ export const featuredProjectsContent = {
       links: [],
     },
     {
+      name: "Enterprise Social Media Publishing Platform",
+      category: "Backend engineering project",
+      status: "under-development",
+      summary:
+        "Designed and developed a production-ready backend for a multi-platform social media publishing platform supporting LinkedIn, Facebook, and Instagram. The platform focuses on secure publishing workflows, background job orchestration, fault tolerance, and production-grade operational reliability.",
+      highlights: [
+        "Designed a modular backend architecture for multi-platform publishing and scheduled content delivery.",
+        "Built idempotent publishing workflows with BullMQ-backed background job orchestration and distributed locking.",
+        "Implemented fault-tolerant processing, retry recovery, and race-condition prevention across publish pipelines.",
+        "Integrated OAuth 2.0 platform connections and secure API flows for LinkedIn, Facebook, and Instagram publishing.",
+        "Added Redis-backed authentication protections, JWT-based access control, and SSRF protection for media processing.",
+        "Prepared the platform for production hardening, CI/CD readiness, and operational visibility.",
+        "Built automated test coverage with 170+ integration tests for publishing, security, and reliability-critical flows.",
+      ],
+      stack: [
+        "Node.js",
+        "TypeScript",
+        "Express",
+        "PostgreSQL",
+        "Prisma ORM",
+        "Redis",
+        "BullMQ",
+        "JWT",
+        "OAuth 2.0",
+        "OpenAPI (Swagger)",
+        "GitHub Actions",
+      ],
+      links: [],
+    },
+    {
       name: "Salon Management System",
       category: "Microservices system",
       summary:
@@ -514,19 +565,6 @@ export const featuredProjectsContent = {
         "Built responsive user interfaces and followed a modular architecture with Git-based version control.",
       ],
       stack: ["Java", "Spring Boot", "PostgreSQL", "React.js", "REST APIs", "Maven", "Git"],
-      links: [],
-    },
-    {
-      name: "NCollect",
-      category: "Collections workflow platform",
-      summary:
-        "Built dashboards in NCollect for payment collections, customer management, payment tracking, and reporting.",
-      highlights: [
-        "Connected frontend modules to REST APIs for collections, reports, and operational data.",
-        "Built reusable UI components that kept multiple enterprise products consistent.",
-        "Worked with backend developers, designers, and product stakeholders in an Agile environment.",
-      ],
-      stack: ["React.js", "Next.js", "JavaScript (ES6+)", "Tailwind CSS", "REST APIs", "Reporting", "Git"],
       links: [],
     },
   ],

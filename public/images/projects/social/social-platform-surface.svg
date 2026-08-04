@@ -1,0 +1,127 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" rx="36" fill="#0B0816"/>
+  <rect x="36" y="36" width="1528" height="928" rx="30" fill="url(#surface)"/>
+  <rect x="76" y="76" width="1448" height="76" rx="22" fill="#151127" stroke="#34284F"/>
+  <circle cx="122" cy="114" r="10" fill="#8B5CF6"/>
+  <circle cx="156" cy="114" r="10" fill="#C084FC" fill-opacity="0.78"/>
+  <circle cx="190" cy="114" r="10" fill="#E9D5FF" fill-opacity="0.72"/>
+  <rect x="246" y="96" width="360" height="36" rx="18" fill="#221A38"/>
+  <rect x="1274" y="94" width="208" height="40" rx="20" fill="#7C3AED" fill-opacity="0.14" stroke="#A78BFA"/>
+  <text x="1378" y="119" text-anchor="middle" fill="#E9D5FF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Production Pipeline</text>
+
+  <rect x="76" y="186" width="268" height="734" rx="24" fill="#141024" stroke="#30224A"/>
+  <rect x="368" y="186" width="872" height="734" rx="24" fill="#141024" stroke="#30224A"/>
+  <rect x="1264" y="186" width="260" height="734" rx="24" fill="#141024" stroke="#30224A"/>
+
+  <text x="110" y="226" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Platform Integrations</text>
+  <text x="402" y="226" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Backend Control Plane</text>
+  <text x="1298" y="226" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Operations</text>
+
+  <rect x="106" y="256" width="208" height="124" rx="22" fill="#1A1430"/>
+  <rect x="106" y="402" width="208" height="124" rx="22" fill="#1A1430"/>
+  <rect x="106" y="548" width="208" height="124" rx="22" fill="#1A1430"/>
+  <rect x="106" y="714" width="208" height="176" rx="22" fill="#1A1430"/>
+
+  <text x="210" y="310" text-anchor="middle" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">LinkedIn API</text>
+  <text x="210" y="456" text-anchor="middle" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Facebook API</text>
+  <text x="210" y="602" text-anchor="middle" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Instagram API</text>
+  <text x="210" y="760" text-anchor="middle" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">OAuth 2.0</text>
+  <text x="210" y="792" text-anchor="middle" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">Connection broker</text>
+  <text x="210" y="826" text-anchor="middle" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">Token refresh</text>
+
+  <rect x="404" y="256" width="338" height="132" rx="22" fill="#1A1430"/>
+  <rect x="866" y="256" width="338" height="132" rx="22" fill="#1A1430"/>
+  <rect x="404" y="420" width="338" height="146" rx="22" fill="#1A1430"/>
+  <rect x="866" y="420" width="338" height="146" rx="22" fill="#1A1430"/>
+  <rect x="404" y="598" width="338" height="132" rx="22" fill="#1A1430"/>
+  <rect x="866" y="598" width="338" height="132" rx="22" fill="#1A1430"/>
+  <rect x="404" y="762" width="800" height="128" rx="22" fill="#1A1430"/>
+
+  <text x="438" y="304" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Secure API Gateway</text>
+  <text x="438" y="338" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">JWT validation · Rate controls · OpenAPI contracts</text>
+
+  <text x="900" y="304" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Publishing Orchestrator</text>
+  <text x="900" y="338" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">Idempotent publish flows · Multi-platform routing</text>
+
+  <text x="438" y="468" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Scheduler + BullMQ</text>
+  <text x="438" y="502" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">Delayed jobs · Retry policy · Queue prioritization</text>
+  <rect x="438" y="524" width="270" height="10" rx="5" fill="#7C3AED" fill-opacity="0.75"/>
+  <rect x="438" y="542" width="214" height="10" rx="5" fill="#A78BFA" fill-opacity="0.42"/>
+
+  <text x="900" y="468" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Workers + Recovery</text>
+  <text x="900" y="502" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">Fault tolerance · Retry replay · Backoff handling</text>
+  <rect x="900" y="524" width="270" height="10" rx="5" fill="#7C3AED" fill-opacity="0.75"/>
+  <rect x="900" y="542" width="226" height="10" rx="5" fill="#A78BFA" fill-opacity="0.42"/>
+
+  <text x="438" y="646" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Redis Control Layer</text>
+  <text x="438" y="680" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">Distributed locks · Auth protection · Hot-path state</text>
+
+  <text x="900" y="646" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">PostgreSQL + Prisma</text>
+  <text x="900" y="680" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">Publishing records · Audit trails · Operational persistence</text>
+
+  <text x="438" y="814" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Security and Production Hardening</text>
+  <text x="438" y="848" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">SSRF protection · CI/CD readiness · Integration tests · Operational safety</text>
+
+  <rect x="1294" y="256" width="200" height="132" rx="22" fill="#1A1430"/>
+  <rect x="1294" y="410" width="200" height="132" rx="22" fill="#1A1430"/>
+  <rect x="1294" y="564" width="200" height="132" rx="22" fill="#1A1430"/>
+  <rect x="1294" y="718" width="200" height="172" rx="22" fill="#1A1430"/>
+
+  <text x="1394" y="308" text-anchor="middle" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Analytics</text>
+  <text x="1394" y="338" text-anchor="middle" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">Publish metrics</text>
+
+  <text x="1394" y="462" text-anchor="middle" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Scheduling</text>
+  <text x="1394" y="492" text-anchor="middle" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">Timed dispatch</text>
+
+  <text x="1394" y="616" text-anchor="middle" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Workers</text>
+  <text x="1394" y="646" text-anchor="middle" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">Queue execution</text>
+
+  <text x="1394" y="770" text-anchor="middle" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Security</text>
+  <text x="1394" y="802" text-anchor="middle" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">SSRF guardrails</text>
+  <text x="1394" y="834" text-anchor="middle" fill="#C4B5FD" font-family="Inter, Arial, sans-serif" font-size="16">Protected tokens</text>
+
+  <path d="M314 318H382" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M314 464H382" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M314 610H382" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M314 782H382" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+
+  <path d="M742 322H866" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M573 388V420" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1035 388V420" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M573 566V598" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1035 566V598" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M573 730V762" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1035 730V762" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+
+  <path d="M1204 322H1294" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1204 492H1294" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1204 646H1294" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1204 806H1294" stroke="url(#signal)" stroke-width="4" stroke-linecap="round"/>
+
+  <circle cx="382" cy="318" r="7" fill="#A78BFA"/>
+  <circle cx="382" cy="464" r="7" fill="#A78BFA"/>
+  <circle cx="382" cy="610" r="7" fill="#A78BFA"/>
+  <circle cx="382" cy="782" r="7" fill="#A78BFA"/>
+  <circle cx="866" cy="322" r="7" fill="#A78BFA"/>
+  <circle cx="573" cy="420" r="7" fill="#A78BFA"/>
+  <circle cx="1035" cy="420" r="7" fill="#A78BFA"/>
+  <circle cx="573" cy="598" r="7" fill="#A78BFA"/>
+  <circle cx="1035" cy="598" r="7" fill="#A78BFA"/>
+  <circle cx="573" cy="762" r="7" fill="#A78BFA"/>
+  <circle cx="1035" cy="762" r="7" fill="#A78BFA"/>
+  <circle cx="1294" cy="322" r="7" fill="#A78BFA"/>
+  <circle cx="1294" cy="492" r="7" fill="#A78BFA"/>
+  <circle cx="1294" cy="646" r="7" fill="#A78BFA"/>
+  <circle cx="1294" cy="806" r="7" fill="#A78BFA"/>
+
+  <defs>
+    <linearGradient id="surface" x1="132" y1="88" x2="1460" y2="936" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#120D22"/>
+      <stop offset="1" stop-color="#090713"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="314" y1="0" x2="1294" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#C084FC"/>
+    </linearGradient>
+  </defs>
+</svg>

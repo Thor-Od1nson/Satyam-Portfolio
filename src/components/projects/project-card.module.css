@@ -207,7 +207,7 @@
   }
 }
 
-@media (min-width: 80rem) {
+@media (min-width: 112rem) {
   .large {
     grid-template-columns: minmax(0, 1.12fr) minmax(20rem, 0.88fr);
     align-items: start;

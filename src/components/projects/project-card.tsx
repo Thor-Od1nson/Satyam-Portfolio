@@ -25,6 +25,7 @@ const statusLabels: Record<NonNullable<ProjectEntry["status"]>, string> = {
   active: "Active",
   learning: "Learning",
   archived: "Archived",
+  "under-development": "Under Development",
 };
 
 const titleClassNames: Record<ProjectCardEmphasis, string> = {

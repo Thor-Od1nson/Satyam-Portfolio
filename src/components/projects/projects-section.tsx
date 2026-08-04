@@ -18,17 +18,17 @@ const projectLayout: Record<
     emphasis: ProjectCardEmphasis;
   }
 > = {
+  "Enterprise Social Media Publishing Platform": {
+    className: "lg:col-span-1",
+    emphasis: "large",
+  },
   "IRCTC Tatkal Assistant": {
-    className: "lg:col-span-4",
+    className: "lg:col-span-1",
     emphasis: "large",
   },
   "Salon Management System": {
-    className: "lg:col-span-2",
-    emphasis: "medium",
-  },
-  NCollect: {
-    className: "lg:col-span-6",
     emphasis: "large",
+    className: "lg:col-span-1",
   },
 };
 
@@ -108,10 +108,10 @@ export function ProjectsSectionContent({ content }: ProjectsSectionProps) {
             </p>
           </motion.div>
 
-          <div className="grid gap-[clamp(1rem,2vw,1.5rem)] md:grid-cols-2 lg:auto-rows-fr lg:grid-cols-6">
+          <div className="grid gap-[clamp(1rem,2vw,1.5rem)] md:grid-cols-2 lg:auto-rows-fr lg:grid-cols-3">
             {content.entries.map((project) => {
               const layout = projectLayout[project.name] ?? {
-                className: "lg:col-span-2",
+                className: "lg:col-span-1",
                 emphasis: "medium" as const,
               };
 

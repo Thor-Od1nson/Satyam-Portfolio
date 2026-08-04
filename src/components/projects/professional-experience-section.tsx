@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 
 const motionEase = [0.22, 1, 0.36, 1] as const;
 
-const professionalCardVariants = ["hero", "a", "b"] as const;
+const professionalCardVariants = ["hero", "a", "b", "d"] as const;
 
 function ProfessionalProjectCard({
   project,
@@ -35,9 +35,22 @@ function ProfessionalProjectCard({
             Professional Experience
           </p>
 
-          <h3 className="max-w-[16ch] text-xl font-semibold tracking-[var(--tracking-heading)] text-foreground sm:text-2xl">
-            {project.name}
-          </h3>
+          <div className="flex flex-wrap items-center gap-2.5">
+            <h3 className="max-w-[22ch] text-xl font-semibold tracking-[var(--tracking-heading)] text-foreground sm:text-2xl">
+              {project.name}
+            </h3>
+
+            {project.status ? (
+              <span
+                className={cn(
+                  neonCardChipClassName,
+                  "inline-flex items-center rounded-full px-2.5 py-1 text-[0.65rem] font-medium uppercase tracking-[0.14em] text-muted-foreground"
+                )}
+              >
+                {project.status}
+              </span>
+            ) : null}
+          </div>
 
           <p className="max-w-[34rem] text-sm leading-[1.74] tracking-[var(--tracking-copy)] text-muted-foreground sm:text-base">
             {project.description}
@@ -103,6 +116,14 @@ function ProfessionalProjectCard({
               ))}
             </div>
           </div>
+
+          {project.notice ? (
+            <div className="border-t border-border-subtle/70 pt-[var(--space-4)]">
+              <p className="text-xs leading-[1.7] tracking-[var(--tracking-copy)] text-muted-foreground/82">
+                {project.notice}
+              </p>
+            </div>
+          ) : null}
         </div>
       </div>
     </NeonCard>
@@ -187,7 +208,7 @@ export function ProfessionalExperienceSectionContent({
             </p>
           </motion.div>
 
-          <div className="grid gap-[clamp(1rem,2vw,1.5rem)] xl:grid-cols-3">
+          <div className="grid gap-[clamp(1rem,2vw,1.5rem)] md:grid-cols-2">
             {content.entries.map((project, index) => (
               <motion.div key={project.name} {...itemMotion} className="h-full">
                 <ProfessionalProjectCard
@@ -198,14 +219,16 @@ export function ProfessionalExperienceSectionContent({
             ))}
           </div>
 
-          <motion.div
-            {...itemMotion}
-            className="border-t border-border-subtle/70 pt-[var(--space-5)]"
-          >
-            <p className="max-w-[48rem] text-sm leading-[1.72] tracking-[var(--tracking-copy)] text-muted-foreground/88">
-              {content.notice}
-            </p>
-          </motion.div>
+          {content.notice ? (
+            <motion.div
+              {...itemMotion}
+              className="border-t border-border-subtle/70 pt-[var(--space-5)]"
+            >
+              <p className="max-w-[48rem] text-sm leading-[1.72] tracking-[var(--tracking-copy)] text-muted-foreground/88">
+                {content.notice}
+              </p>
+            </motion.div>
+          ) : null}
         </div>
       </motion.div>
     </section>

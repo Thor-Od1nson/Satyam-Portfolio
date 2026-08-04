@@ -107,17 +107,17 @@ export const projectShowcaseVisuals: Record<string, ProjectShowcaseVisual> = {
       items: ["Bookings", "Customers", "Staff", "Billing"],
     },
   },
-  NCollect: {
-    imageLabel: "Collections dashboard",
+  "Enterprise Social Media Publishing Platform": {
+    imageLabel: "Publishing architecture",
     image: {
-      src: "/images/projects/ncollect/collections-dashboard.svg",
-      alt: "Mock collections dashboard showing payment tracking, account queues, promise status, and reporting panels with dummy data.",
+      src: "/images/projects/social/social-platform-surface.svg",
+      alt: "Abstract backend systems illustration showing publishing APIs, schedulers, queues, workers, analytics, and security layers with no product UI or social feed screens.",
       width: 1600,
       height: 1000,
     },
     artifact: {
-      label: "Collections workflow",
-      items: ["Accounts", "Promises", "Payments", "Reports"],
+      label: "Operational layers",
+      items: ["Schedulers", "Queues", "Workers", "Security"],
     },
   },
 };
