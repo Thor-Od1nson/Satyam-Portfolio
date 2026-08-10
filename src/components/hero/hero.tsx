@@ -1,18 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import {
-  ArrowDownIcon,
-  ArrowRightIcon,
-  MailIcon,
-} from "lucide-react";
+import { ArrowRightIcon, DownloadIcon } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 
-import {
-  ContentColumn,
-  EditorialSection,
-  SectionHeader,
-} from "@/components/layout/editorial-layout";
+import { ContentColumn, EditorialSection } from "@/components/layout/editorial-layout";
 import { Button } from "@/components/ui/button";
 import { heroContent, type HeroContent } from "@/lib/hero";
 import { cn } from "@/lib/utils";
@@ -21,10 +13,50 @@ import styles from "./hero.module.css";
 
 const motionEase = [0.22, 1, 0.36, 1] as const;
 
+const architectureLayers: ReadonlyArray<{
+  label: string;
+  value: string;
+  tag?: string;
+}> = [
+  {
+    label: "Interface",
+    value: "React product surfaces",
+  },
+  {
+    label: "Gateway",
+    value: "Auth, APIs, and orchestration",
+    tag: "REST",
+  },
+  {
+    label: "Services",
+    value: "Spring Boot and Node.js workflows",
+    tag: "Webhooks",
+  },
+  {
+    label: "Data",
+    value: "PostgreSQL, jobs, and observability",
+    tag: "Queues",
+  },
+] as const;
+
+const architectureSignals = [
+  {
+    value: "170+",
+    label: "Integration Tests",
+  },
+  {
+    value: "OAuth 2.0",
+    label: "Authorization",
+  },
+  {
+    value: "JWT",
+    label: "Authentication",
+  },
+] as const;
+
 const ctaIcons = {
-  "View Work": ArrowRightIcon,
-  Email: MailIcon,
-  Experience: ArrowDownIcon,
+  "View Projects": ArrowRightIcon,
+  "Download Resume": DownloadIcon,
 } as const;
 
 type CtaIconProps = {
@@ -39,14 +71,60 @@ function CtaIcon({ label }: CtaIconProps) {
 
 function getButtonClassName(kind: HeroContent["ctas"][number]["kind"]) {
   if (kind === "default") {
-    return "h-12 rounded-full px-6 text-sm shadow-sm";
+    return "h-11 w-full justify-center rounded-full px-5 text-sm shadow-sm sm:h-12 sm:min-w-[12.25rem] sm:w-auto sm:px-6";
   }
 
-  return "h-12 rounded-full border-border bg-elevated/88 px-5 text-sm text-foreground shadow-2xs";
+  return "h-11 w-full justify-center rounded-full border-border bg-elevated/88 px-5 text-sm text-foreground shadow-2xs sm:h-12 sm:min-w-[12.25rem] sm:w-auto sm:px-6";
 }
 
-function getTextLinkClassName() {
-  return "inline-flex h-12 items-center gap-2 rounded-full px-1 text-sm font-medium tracking-[var(--tracking-copy)] text-muted-foreground transition-colors [transition-duration:var(--duration-fast)] [transition-timing-function:var(--ease-standard)] [&_svg]:transition-transform [&_svg]:duration-[var(--duration-fast)] [&_svg]:ease-[var(--ease-standard)] hover:text-foreground hover:[&_svg]:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:[&_svg]:scale-105";
+function HeroVisual() {
+  return (
+    <div className={styles.visualShell}>
+      <div className={styles.visualHalo} aria-hidden="true" />
+
+      <div className={styles.visualPanel}>
+        <div className={styles.visualHeader}>
+          <div className="space-y-1">
+            <p className={styles.visualEyebrow}>Production Architecture</p>
+            <p className={styles.visualTitle}>Enterprise delivery flow</p>
+          </div>
+
+          <span className={styles.visualStatus}>
+            <span className={styles.statusDot} aria-hidden="true" />
+            Live
+          </span>
+        </div>
+
+        <div className={styles.canvas}>
+          <div className={styles.flowColumn}>
+            {architectureLayers.map((layer, index) => (
+              <div key={layer.label} className={styles.flowRow}>
+                <span className={styles.flowIndex}>{String(index + 1).padStart(2, "0")}</span>
+
+                <div className={styles.flowCard}>
+                  <p className={styles.flowLabel}>{layer.label}</p>
+                  <p className={styles.flowValue}>{layer.value}</p>
+                </div>
+
+                <div className={styles.flowTagRail}>
+                  {layer.tag ? <span className={styles.flowTag}>{layer.tag}</span> : null}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.metrics}>
+            {architectureSignals.map((signal) => (
+              <div key={signal.value} className={styles.metricCard}>
+                <span className={styles.metricValue}>{signal.value}</span>
+                <span className={styles.metricLabel}>{signal.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export function Hero() {
@@ -107,58 +185,60 @@ export function HeroSection({ content }: HeroSectionProps) {
         <div className={styles.glow} />
       </div>
 
-      <EditorialSection size="hero" className="relative z-[var(--z-base)]">
+      <EditorialSection size="default" className="relative z-[var(--z-base)]">
         <motion.div
           {...containerMotion}
-          className="grid min-h-[64svh] gap-[clamp(2rem,4vw,3.25rem)] xl:min-h-[min(42rem,68svh)] xl:grid-cols-[minmax(0,0.94fr)_minmax(18rem,0.56fr)] xl:items-end xl:gap-[clamp(2.25rem,3vw,4rem)]"
+          className="grid gap-[clamp(2.5rem,4vw,4rem)] xl:grid-cols-[minmax(0,0.88fr)_minmax(20rem,0.8fr)] xl:items-center xl:gap-[clamp(3rem,4vw,5rem)]"
         >
-          <ContentColumn className="max-w-[44rem] space-y-[clamp(1.5rem,2.6vw,2.4rem)]">
-            <motion.div {...itemMotion}>
-              <SectionHeader
-                eyebrow={content.name}
-                title={content.title}
-                titleId="hero-heading"
-                titleAs="h1"
-                eyebrowClassName="text-xs font-medium tracking-[0.18em] sm:text-sm"
-                titleClassName="max-w-[14ch] text-[clamp(2.5rem,7vw,3rem)] leading-[0.96] sm:text-[clamp(3rem,6vw,3.5rem)] lg:text-[clamp(4rem,4.2vw,4.5rem)] 2xl:text-[clamp(4.5rem,4vw,5rem)]"
-                description={content.introduction}
-                descriptionClassName="max-w-[38rem] text-base leading-[1.72] sm:text-lg xl:text-[1.1875rem]"
-              />
+          <ContentColumn className="max-w-[35rem] space-y-[clamp(1.25rem,2vw,1.75rem)]">
+            <motion.div {...itemMotion} className="space-y-[clamp(1.35rem,2.2vw,2rem)]">
+              <div className="space-y-3">
+                <h1
+                  id="hero-heading"
+                  className="max-w-[10ch] text-[clamp(2.75rem,7.2vw,4.3rem)] font-semibold leading-[0.94] tracking-[calc(var(--tracking-display)-0.02em)] text-foreground"
+                >
+                  {content.name}
+                </h1>
+
+                <p className="text-[clamp(1.1rem,2vw,1.55rem)] font-medium tracking-[var(--tracking-copy)] text-primary/92 sm:text-[clamp(1.2rem,1.8vw,1.65rem)]">
+                  {content.role}
+                </p>
+              </div>
+
+              <p className="max-w-[34rem] text-base leading-[1.76] tracking-[var(--tracking-copy)] text-muted-foreground sm:text-lg">
+                {content.valueProposition}
+              </p>
             </motion.div>
+
+            <motion.ul {...itemMotion} className={styles.stack} aria-label="Technology stack">
+              {content.technologies.map((technology, index) => (
+                <li key={technology} className={styles.stackItem}>
+                  {index > 0 ? <span className={styles.stackDot} aria-hidden="true" /> : null}
+                  <span>{technology}</span>
+                </li>
+              ))}
+            </motion.ul>
 
             <motion.div
               {...itemMotion}
               className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap sm:items-center"
             >
               {content.ctas.map((cta) => {
-                if (!cta.href) {
-                  return null;
-                }
-
-                if (cta.kind === "outline") {
-                  return cta.external ? (
-                    <a
-                      key={cta.label}
-                      href={cta.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={getTextLinkClassName()}
-                    >
-                      <CtaIcon label={cta.label} />
-                      {cta.label}
-                    </a>
-                  ) : (
-                    <Link key={cta.label} href={cta.href} className={getTextLinkClassName()}>
-                      <CtaIcon label={cta.label} />
-                      {cta.label}
-                    </Link>
-                  );
-                }
-
                 return (
-                  <Button asChild key={cta.label} size="lg" variant={cta.kind} className={getButtonClassName(cta.kind)}>
-                    {cta.external ? (
-                      <a href={cta.href} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    asChild
+                    key={cta.label}
+                    size="lg"
+                    variant={cta.kind}
+                    className={getButtonClassName(cta.kind)}
+                  >
+                    {cta.external || cta.download ? (
+                      <a
+                        href={cta.href}
+                        target={cta.external ? "_blank" : undefined}
+                        rel={cta.external ? "noopener noreferrer" : undefined}
+                        download={cta.download ? true : undefined}
+                      >
                         <CtaIcon label={cta.label} />
                         {cta.label}
                       </a>
@@ -172,38 +252,14 @@ export function HeroSection({ content }: HeroSectionProps) {
                 );
               })}
             </motion.div>
-
-            <motion.p
-              {...itemMotion}
-              className="max-w-[36rem] text-sm leading-[1.68] tracking-[var(--tracking-copy)] text-muted-foreground"
-            >
-              {content.footnote}
-            </motion.p>
           </ContentColumn>
 
           <motion.aside
             {...itemMotion}
-            className="w-full xl:justify-self-end xl:pl-[clamp(1.75rem,2.2vw,2.75rem)]"
-            aria-label="Hero summary"
+            className="w-full max-w-[34rem] xl:justify-self-end"
+            aria-label="Enterprise architecture visualization"
           >
-            <dl className="border-y border-border-subtle/90">
-              {content.signals.map((signal, index) => (
-                <div
-                  key={signal.label}
-                  className={cn(
-                    "grid gap-3 py-[var(--space-5)] md:grid-cols-[7.5rem_1fr] md:gap-[var(--space-5)]",
-                    index > 0 ? "border-t border-border-subtle/90" : undefined
-                  )}
-                >
-                  <dt className="text-2xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                    {signal.label}
-                  </dt>
-                  <dd className="max-w-[31rem] text-sm leading-[1.68] tracking-[var(--tracking-copy)] text-foreground/92 sm:text-[1rem]">
-                    {signal.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+            <HeroVisual />
           </motion.aside>
         </motion.div>
       </EditorialSection>
