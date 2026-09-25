@@ -1,132 +1,59 @@
 "use client";
 
+import { ArrowUpRightIcon } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 
-import {
-  NeonCard,
-  neonCardChipClassName,
-} from "@/components/ui/neon-card";
 import {
   professionalProjectsContent,
   type ProfessionalProjectEntry,
   type ProfessionalProjectsContent,
 } from "@/lib/portfolio-content";
-import { cn } from "@/lib/utils";
 
 const motionEase = [0.22, 1, 0.36, 1] as const;
 
-const professionalCardVariants = ["hero", "a", "b", "d"] as const;
-
 function ProfessionalProjectCard({
   project,
-  variant,
+  index,
 }: {
   project: ProfessionalProjectEntry;
-  variant: (typeof professionalCardVariants)[number];
+  index: number;
 }) {
-  return (
-    <NeonCard
-      variant={variant}
-      className="h-full rounded-[calc(var(--radius-2xl)+0.125rem)] p-[var(--space-4)] sm:p-[var(--space-5)]"
-    >
-      <div className="flex h-full flex-col gap-[var(--space-5)]">
-        <div className="space-y-3">
-          <p className="text-2xs font-medium uppercase tracking-[0.16em] text-primary">
-            Professional Experience
-          </p>
+  const sequence = String(index + 1).padStart(2, "0");
 
-          <div className="flex flex-wrap items-center gap-2.5">
-            <h3 className="max-w-[22ch] text-xl font-semibold tracking-[var(--tracking-heading)] text-foreground sm:text-2xl">
+  return (
+    <article className="group relative py-[clamp(1.2rem,2vw,1.6rem)] transition-transform [transition-duration:var(--duration-fast)] [transition-timing-function:var(--ease-standard)] hover:translate-x-[2px]">
+      <div className="grid gap-x-[clamp(1rem,2vw,2rem)] gap-y-3 sm:grid-cols-[auto_1fr] lg:grid-cols-[clamp(2.5rem,4vw,3.5rem)_minmax(0,1.15fr)_minmax(12rem,0.85fr)_auto] lg:items-start">
+        <p className="text-[clamp(1.3rem,2.6vw,2rem)] font-semibold leading-none tracking-[calc(var(--tracking-display)-0.03em)] text-muted-foreground/62 transition-colors [transition-duration:var(--duration-fast)] [transition-timing-function:var(--ease-standard)] group-hover:text-primary/92">
+          {sequence}
+        </p>
+
+        <div className="space-y-1.5">
+          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+            <h3 className="text-lg font-semibold tracking-[var(--tracking-heading)] text-foreground/88 transition-colors [transition-duration:var(--duration-fast)] [transition-timing-function:var(--ease-standard)] group-hover:text-foreground sm:text-[1.28rem]">
               {project.name}
             </h3>
 
             {project.status ? (
-              <span
-                className={cn(
-                  neonCardChipClassName,
-                  "inline-flex items-center rounded-full px-2.5 py-1 text-[0.65rem] font-medium uppercase tracking-[0.14em] text-muted-foreground"
-                )}
-              >
-                {project.status}
+              <span className="text-[0.72rem] font-medium tracking-[var(--tracking-copy)] text-muted-foreground/82">
+                · {project.status}
               </span>
             ) : null}
           </div>
 
-          <p className="max-w-[34rem] text-sm leading-[1.74] tracking-[var(--tracking-copy)] text-muted-foreground sm:text-base">
+          <p className="text-sm leading-[1.66] tracking-[var(--tracking-copy)] text-muted-foreground sm:text-[0.96rem]">
             {project.description}
           </p>
         </div>
 
-        <div className="space-y-[var(--space-4)]">
-          <div className="space-y-2.5">
-            <p className="text-2xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-              Technologies used
-            </p>
+        <p className="text-sm leading-[1.66] tracking-[var(--tracking-copy)] text-foreground/82 sm:text-[0.95rem] lg:justify-self-end lg:text-right">
+          {project.technologies.join(" · ")}
+        </p>
 
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((technology) => (
-                <span
-                  key={`${project.name}-${technology}`}
-                  className={cn(
-                    neonCardChipClassName,
-                    "inline-flex items-center rounded-full px-3 py-1 text-xs font-medium tracking-[var(--tracking-copy)] text-foreground"
-                  )}
-                >
-                  {technology}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-2.5 border-t border-border-subtle/70 pt-[var(--space-4)]">
-            <p className="text-2xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-              My responsibilities
-            </p>
-
-            <ul className="grid gap-2.5" aria-label={`${project.name} responsibilities`}>
-              {project.responsibilities.map((responsibility) => (
-                <li key={responsibility} className="grid grid-cols-[auto_1fr] gap-3">
-                  <span className="pt-[0.45rem] text-sm text-primary" aria-hidden="true">
-                    /
-                  </span>
-                  <span className="text-sm leading-[1.7] tracking-[var(--tracking-copy)] text-muted-foreground">
-                    {responsibility}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="space-y-2.5 border-t border-border-subtle/70 pt-[var(--space-4)]">
-            <p className="text-2xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-              Skills demonstrated
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              {project.skills.map((skill) => (
-                <span
-                  key={`${project.name}-${skill}`}
-                  className={cn(
-                    neonCardChipClassName,
-                    "inline-flex items-center rounded-full px-3 py-1 text-xs font-medium tracking-[var(--tracking-copy)] text-foreground"
-                  )}
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {project.notice ? (
-            <div className="border-t border-border-subtle/70 pt-[var(--space-4)]">
-              <p className="text-xs leading-[1.7] tracking-[var(--tracking-copy)] text-muted-foreground/82">
-                {project.notice}
-              </p>
-            </div>
-          ) : null}
-        </div>
+        <span className="hidden items-center justify-self-end pt-0.5 text-muted-foreground/0 opacity-0 transition-all [transition-duration:var(--duration-fast)] [transition-timing-function:var(--ease-standard)] group-hover:text-primary/85 group-hover:opacity-100 lg:inline-flex">
+          <ArrowUpRightIcon className="size-4" aria-hidden="true" />
+        </span>
       </div>
-    </NeonCard>
+    </article>
   );
 }
 
@@ -180,7 +107,7 @@ export function ProfessionalExperienceSectionContent({
       };
 
   return (
-    <section aria-labelledby="professional-experience-projects-heading">
+    <section aria-labelledby="enterprise-products-heading">
       <motion.div
         {...containerMotion}
         className="mx-auto w-full max-w-[var(--layout-hero)] px-[var(--space-gutter)] pb-[var(--space-section)] pt-[clamp(1rem,2vw,1.75rem)] md:pt-[clamp(1.25rem,2vw,2rem)]"
@@ -188,7 +115,7 @@ export function ProfessionalExperienceSectionContent({
         <div className="space-y-[clamp(2.5rem,4vw,4rem)]">
           <motion.div
             {...itemMotion}
-            className="grid gap-[var(--space-5)] xl:grid-cols-[minmax(0,0.64fr)_minmax(0,0.36fr)] xl:items-end"
+            className="grid gap-[var(--space-5)] xl:grid-cols-[minmax(0,0.58fr)_minmax(0,0.42fr)] xl:items-end"
           >
             <div className="max-w-[48rem] space-y-[var(--space-4)]">
               <p className="text-sm font-medium uppercase tracking-[var(--tracking-widest)] text-primary">
@@ -196,39 +123,29 @@ export function ProfessionalExperienceSectionContent({
               </p>
 
               <h2
-                id="professional-experience-projects-heading"
-                className="max-w-[18ch] scroll-mt-[calc(var(--space-16)+var(--space-4))] text-2xl font-semibold tracking-[var(--tracking-heading)] text-foreground sm:text-3xl xl:text-4xl"
+                id="enterprise-products-heading"
+                className="max-w-[16ch] scroll-mt-[calc(var(--space-16)+var(--space-4))] text-2xl font-semibold tracking-[var(--tracking-heading)] text-foreground sm:text-3xl xl:text-[2.6rem]"
               >
                 {content.heading}
               </h2>
             </div>
 
-            <p className="max-w-[36rem] text-sm leading-[1.74] tracking-[var(--tracking-copy)] text-muted-foreground sm:text-base xl:justify-self-end xl:text-right">
+            <p className="max-w-[34rem] text-sm leading-[1.74] tracking-[var(--tracking-copy)] text-muted-foreground sm:text-base xl:justify-self-end xl:text-right">
               {content.introduction}
             </p>
           </motion.div>
 
-          <div className="grid gap-[clamp(1rem,2vw,1.5rem)] md:grid-cols-2">
+          <ol className="border-y border-border-subtle/72" aria-label="Enterprise product index">
             {content.entries.map((project, index) => (
-              <motion.div key={project.name} {...itemMotion} className="h-full">
-                <ProfessionalProjectCard
-                  project={project}
-                  variant={professionalCardVariants[index] ?? "a"}
-                />
-              </motion.div>
+              <motion.li
+                key={project.name}
+                {...itemMotion}
+                className="border-b border-border-subtle/72 transition-colors [transition-duration:var(--duration-fast)] [transition-timing-function:var(--ease-standard)] last:border-b-0 hover:border-primary/28"
+              >
+                <ProfessionalProjectCard project={project} index={index} />
+              </motion.li>
             ))}
-          </div>
-
-          {content.notice ? (
-            <motion.div
-              {...itemMotion}
-              className="border-t border-border-subtle/70 pt-[var(--space-5)]"
-            >
-              <p className="max-w-[48rem] text-sm leading-[1.72] tracking-[var(--tracking-copy)] text-muted-foreground/88">
-                {content.notice}
-              </p>
-            </motion.div>
-          ) : null}
+          </ol>
         </div>
       </motion.div>
     </section>

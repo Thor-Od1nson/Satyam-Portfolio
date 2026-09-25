@@ -79,7 +79,7 @@ export const viewport: Viewport = {
   colorScheme: "light dark",
   themeColor: [
     { color: "#fafafa", media: "(prefers-color-scheme: light)" },
-    { color: "#09090b", media: "(prefers-color-scheme: dark)" },
+    { color: "#141519", media: "(prefers-color-scheme: dark)" },
   ],
 };
 
@@ -93,7 +93,7 @@ export default function RootLayout({
       lang="en"
       dir="ltr"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
       <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
         <Providers>

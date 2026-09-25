@@ -39,11 +39,6 @@ export const siteIdentity = {
 } as const;
 
 export const siteContactDefinitions = {
-  phone: {
-    label: "Phone",
-    value: "+91 88253 37557",
-    href: "tel:+918825337557",
-  },
   email: {
     label: "Email",
     value: "satyamsinghss861@gmail.com",
@@ -55,7 +50,6 @@ export const siteContactDefinitions = {
     href: "https://www.linkedin.com/in/satyam88/",
   },
 } satisfies {
-  phone: SiteContactDefinition;
   email: SiteContactDefinition;
   linkedin: SiteContactDefinition;
 };

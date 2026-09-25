@@ -36,7 +36,14 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
         aria-pressed={false}
         disabled
       >
-        <SunIcon className="size-4 text-foreground" aria-hidden="true" />
+        <SunIcon
+          className="size-4 scale-100 text-foreground transition-transform [transition-duration:var(--duration-fast)] [transition-timing-function:var(--ease-standard)] dark:scale-0"
+          aria-hidden="true"
+        />
+        <MoonIcon
+          className="absolute size-4 scale-0 text-foreground transition-transform [transition-duration:var(--duration-fast)] [transition-timing-function:var(--ease-standard)] dark:scale-100"
+          aria-hidden="true"
+        />
       </Button>
     );
   }

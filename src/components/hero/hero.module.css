@@ -19,7 +19,7 @@
   inset: auto;
   border-radius: 9999px;
   filter: blur(96px);
-  opacity: 0.3;
+  opacity: 0.22;
 }
 
 .backdrop::before {
@@ -30,7 +30,7 @@
   background:
     radial-gradient(
       circle,
-      color-mix(in oklch, var(--primary) 14%, transparent) 0%,
+      color-mix(in oklch, var(--primary) 11%, transparent) 0%,
       transparent 74%
     );
   animation: hero-drift 24s var(--ease-standard) infinite alternate;
@@ -38,15 +38,16 @@
 
 .backdrop::after {
   bottom: clamp(-4rem, 2vw, 2rem);
-  left: clamp(-8rem, -3vw, -2rem);
+  left: clamp(-12rem, -6vw, -4rem);
   width: clamp(20rem, 32vw, 34rem);
   height: clamp(20rem, 32vw, 34rem);
   background:
     radial-gradient(
       circle,
-      color-mix(in oklch, var(--info) 9%, transparent) 0%,
+      color-mix(in oklch, var(--info) 6%, transparent) 0%,
       transparent 72%
     );
+  opacity: 0.16;
   animation: hero-float 28s var(--ease-decelerate) infinite alternate;
 }
 
@@ -67,7 +68,7 @@
   background-position: center;
   background-size: clamp(4rem, 6vw, 5.75rem) clamp(4rem, 6vw, 5.75rem);
   mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 70%, transparent 100%);
-  opacity: 0.08;
+  opacity: 0.05;
 }
 
 .glow {
@@ -84,7 +85,7 @@
       transparent 74%
     );
   filter: blur(60px);
-  opacity: 0.14;
+  opacity: 0.1;
   animation: hero-pulse 18s var(--ease-standard) infinite alternate;
 }
 

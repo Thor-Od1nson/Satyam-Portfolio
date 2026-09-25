@@ -9,10 +9,6 @@ type EditorialPageProps = ComponentPropsWithoutRef<"div">;
 export function EditorialPage({ children, className, ...props }: EditorialPageProps) {
   return (
     <div className={cn(styles.page, className)} {...props}>
-      <div className={styles.background} aria-hidden="true">
-        <div className={styles.texture} />
-        <div className={styles.wash} />
-      </div>
       <div className={styles.content}>{children}</div>
     </div>
   );
